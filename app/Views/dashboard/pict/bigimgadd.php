@@ -28,7 +28,7 @@
                         <div class="invalid-feedback"><?= $validation->getError('title'); ?></div>
                       </div>
                       <div class="mb-3">
-                        <label for="desk" class="form-label">Sub judul</label>
+                        <label for="desk" class="form-label">Keterangan</label>
                         <input type="text" class="form-control <?= ($validation->hasError('subtitle')) ? 'is-invalid' : ''; ?>" name="subtitle" id="desk"><?= old('subtitle'); ?>
                         <div class="invalid-feedback"><?= $validation->getError('subtitle'); ?></div>
                       </div>

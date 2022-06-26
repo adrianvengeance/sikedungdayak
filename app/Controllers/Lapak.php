@@ -108,13 +108,12 @@ class Lapak extends BaseController
         $no_wa  = $this->request->getVar('no_wa');
         $nama = $this->request->getVar('nama');
 
-        $gambar->move("produklapak/$nama-0$no_wa");         //pindahkan ke folder lapak/nomor
-
-        $nama_gambar = $gambar->getName();                  //ambil nama file upload
+        $newName = $gambar->getRandomName();
+        $gambar->move("produklapak/$nama-0$no_wa", $newName);         //pindahkan ke folder lapak/nomor
 
         $datalapak = [
             'nama'      => $nama,
-            'gambar'    => $nama_gambar,
+            'gambar'    => $newName,
             'deskripsi' => $this->request->getVar('deskripsi'),
             'harga'     => $this->request->getVar('harga'),
             'no_wa'     => $this->request->getVar('no_wa'),

@@ -1330,44 +1330,106 @@ class Auth extends BaseController
         return view('/dashboard/pict/bigimgadd', $data);
     }
 
-    // public function bigimgaddprocess()
-    // {
-    //     if (!$this->validate([
-    //         'title' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Judul untuk gambar diperlukan'
-    //             ]
-    //         ],
-    //         'subtitle' => [
-    //             'rules' => 'required',
-    //             'errors' => [
-    //                 'required' => 'Sub judul untuk gambar diperlukan'
-    //             ]
-    //         ],
-    //         'gambar' => [
-    //             'rules'  => 'uploaded[gambar]|max_size[gambar,5120]|ext_in[gambar,png,jpg,jpeg]|mime_in[gambar,image/png,image/jpg,image/jpeg]',
-    //             'errors' => [
-    //                 'uploaded'  => 'Gambar diperlukan',
-    //                 'max_size'  => 'Ukuran gambar maksimal 5 MB',
-    //                 'ext_in'    => 'File harus sebuah gambar',
-    //                 'mime_in'   => 'File harus sebuah gambar',
-    //             ]
-    //         ]
-    //     ])) {
-    //         return redirect()->back()->withInput();
-    //     }
-    //     $gambar = $this->request->getFile('gambar');        //ambil file upload gambar            
+    public function bigimgaddprocess()
+    {
+        if (!$this->validate([
+            'title' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Judul untuk gambar diperlukan'
+                ]
+            ],
+            'subtitle' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Keterangan untuk gambar diperlukan'
+                ]
+            ],
+            'gambar' => [
+                'rules'  => 'uploaded[gambar]|max_size[gambar,5120]|ext_in[gambar,png,jpg,jpeg]|mime_in[gambar,image/png,image/jpg,image/jpeg]',
+                'errors' => [
+                    'uploaded'  => 'Gambar diperlukan',
+                    'max_size'  => 'Ukuran gambar maksimal 5 MB',
+                    'ext_in'    => 'File harus sebuah gambar',
+                    'mime_in'   => 'File harus sebuah gambar',
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput();
+        }
+        $post = $this->request->getPost();
 
-    //     $gambar->move("gambar/bigimg/");
+        $gambar = $this->request->getFile('gambar');
+        $newName = $gambar->getRandomName();
+        $gambar->move('gambar/bigimg', $newName);
 
-    //     $nama_gambar = $gambar->getName();                  //ambil nama file upload
+        $post['gambar'] = $newName;
 
-    //     $post = $this->request->getPost();
-    //     $post['gambar'] = $nama_gambar;
+        $this->bigimgmodel->insert($post);
+        session()->setFlashdata('pictures', 'Gambar besar berhasil ditambahkan');
+        return redirect()->to('/home/pictures');
+    }
 
-    //     $this->bigimgmodel->insert($post);
-    //     session()->setFlashdata('pictures', 'Gambar besar berhasil ditambahkan');
-    //     return redirect()->to('/home/pictures');
-    // }
+    public function bigimgedit($id)
+    {
+        $data = [
+            'title' => 'Edit Big Image | Padukuhan Kedung Dayak',
+            'user'  => $this->user,
+            'uri'   => $this->uri,
+            'data'  => $this->bigimgmodel->where('id', $id)->first(),
+            'validation'    => Services::validation(),
+        ];
+        return view('/dashboard/pict/bigimgedit', $data);
+    }
+
+    public function bigimgeditprocess($id)
+    {
+        if (!$this->validate([
+            'title' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Judul untuk gambar diperlukan'
+                ]
+            ],
+            'subtitle' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Sub judul untuk gambar diperlukan'
+                ]
+            ],
+            'gambar' => [
+                'rules'  => 'permit_empty|uploaded[gambar]|max_size[gambar,5120]|ext_in[gambar,png,jpg,jpeg]|mime_in[gambar,image/png,image/jpg,image/jpeg]',
+                'errors' => [
+                    'uploaded'  => 'Gambar diperlukan',
+                    'max_size'  => 'Ukuran gambar maksimal 5 MB',
+                    'ext_in'    => 'File harus sebuah gambar',
+                    'mime_in'   => 'File harus sebuah gambar',
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput();
+        }
+        $post = $this->request->getPost();
+        $gambar = $this->request->getFile('newimg');
+
+        if ($this->request->getFile('newimg')) {
+            dd($gambar);
+        } else {
+            dd('koisong');
+        }
+
+        helper('filesystem');
+        $file = $this->bigimgmodel->find($id);
+
+        if (!empty($gambar)) {
+            delete_files('/gambar/bigimage/' . $file['gambar']);
+            $newName = $gambar->getRandomName();
+            $gambar->move('gambar/bigimg', $newName);
+            $post['gambar'] = $newName;
+        }
+
+        $this->bigimgmodel->update($id, $post);
+        session()->setFlashdata('pictures', 'Gambar besar diubah');
+        return redirect()->to('/home/pictures');
+    }
 }

@@ -24,18 +24,18 @@
             <div class="row">
               <div class="col-md-6">
                 <button class="btn disabled ps-0">
-                  <h6><i class="fas fa-image"></i><span class="ms-2">Gambar Besar</span></h6>
+                  <h6><i class="fas fa-image"></i><span class="ms-2">Big Image</span></h6>
                 </button>
               </div>
               <div class="col-md-6">
                 <div class="d-md-none">
                   <div class="text-center row px-3">
-                    <a class="btn btn-primary text-white btn-sm disabled" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
+                    <a class="btn btn-primary text-white btn-sm" href="/home/pictures/bigimg/add" style="width: 50px;"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="d-none d-md-block">
                   <div class="float-end mt-2">
-                    <a class="btn btn-primary text-white btn-sm disabled" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
+                    <a class="btn btn-primary text-white btn-sm" href="/home/pictures/bigimg/add" style="width: 50px;"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                       <td class="align-middle"><?= $value['subtitle']; ?></td>
                       <td class="align-middle"><?= $value['updated_at']; ?></td>
                       <td class="align-middle">
-                        <a class="btn btn-sm" href="#" style="display: block; margin: auto;"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-sm" href="/home/pictures/bigimg/edit/<?= $value['id']; ?>" style="display: block; margin: auto;"><i class="fas fa-edit"></i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -74,18 +74,18 @@
             <div class="row">
               <div class="col-md-6">
                 <button class="btn disabled ps-0">
-                  <h6><i class="fas fa-portrait"></i><span class="ms-2">Gambar Kecil Carousel</span></h6>
+                  <h6><i class="fas fa-portrait"></i><span class="ms-2">Small Images Carousel</span></h6>
                 </button>
               </div>
               <div class="col-md-6">
                 <div class="d-md-none">
                   <div class="text-center row px-3">
-                    <a class="btn btn-primary text-white btn-sm disabled" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
+                    <a class="btn btn-primary text-white btn-sm" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="d-none d-md-block">
                   <div class="float-end mt-2">
-                    <a class="btn btn-primary text-white btn-sm disabled" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
+                    <a class="btn btn-primary text-white btn-sm" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
               </div>
