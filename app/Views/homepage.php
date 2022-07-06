@@ -74,22 +74,31 @@
   <div class="row">
     <div id="carouselExampleCaptions" class="carousel slide slidehomee bigcrsl" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <?php if (!empty($bigimg)) : ?>
+          <?php for ($i = 0; $i <= $bigimgmin1; $i++) : ?>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $i; ?>" aria-label="Slide <?= $i ?>" <?= $i == 0 ? 'class="active" aria-current="true"' : ""; ?>></button>
+          <?php endfor ?>
+        <?php else : ?>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" aria-label="Slide 0" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <?php endif ?>
       </div>
       <div class="carousel-inner">
+        <?php $bicount = 0 ?>
         <?php if (!empty($bigimg)) : ?>
           <?php foreach ($bigimg as $x => $value) : ?>
-            <div class="carousel-item active">
+            <div class="carousel-item <?= $bicount == 0 ? "active" : ""; ?>">
               <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="img-fluid d-block w-100" alt="<?= $value['title']; ?>">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class=""><mark><?= $value['title']; ?></mark></h5>
                 <p><mark><?= $value['subtitle']; ?></mark></p>
               </div>
             </div>
+            <?php $bicount++; ?>
           <?php endforeach; ?>
         <?php else : ?>
+
           <div class="carousel-item active">
             <img src="https://dummyimage.com/1920x1080/737273/000000" class="img-fluid d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">

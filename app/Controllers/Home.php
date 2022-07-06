@@ -46,10 +46,14 @@ class Home extends BaseController
     }
     public function index()
     {
+        $bigimg = $this->bigimgmodel->findAll();
         $data = [
             'title' => 'Padukuhan Kedung Dayak',
-            'bigimg'   => $this->bigimgmodel->findAll()
+            'bigimg'   => $bigimg,
+            'bigimgmin1' => (count($bigimg) - 1)
         ];
+        // dd($data['bigimg-1']);
+
         return view('homepage', $data);
     }
 
