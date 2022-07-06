@@ -1412,17 +1412,7 @@ class Auth extends BaseController
         $post = $this->request->getPost();
         $gambar = $this->request->getFile('newimg');
 
-        if ($this->request->getFile('newimg')) {
-            dd($gambar);
-        } else {
-            dd('koisong');
-        }
-
-        helper('filesystem');
-        $file = $this->bigimgmodel->find($id);
-
-        if (!empty($gambar)) {
-            delete_files('/gambar/bigimage/' . $file['gambar']);
+        if ($gambar->isValid()) {
             $newName = $gambar->getRandomName();
             $gambar->move('gambar/bigimg', $newName);
             $post['gambar'] = $newName;
