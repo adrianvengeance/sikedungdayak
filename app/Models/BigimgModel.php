@@ -9,7 +9,7 @@ class BigimgModel extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'bigimg';
     protected $primaryKey       = 'id';
-    protected $allowedFields    = ['title', 'subtitle', 'gambar', 'urutan'];
+    protected $allowedFields    = ['title', 'subtitle', 'gambar'];
 
     // Dates
     protected $useTimestamps = true;

@@ -95,23 +95,24 @@
                 <tr>
                   <th>No</th>
                   <th>Gambar</th>
-                  <th>Title</th>
-                  <th>Subtitle</th>
-                  <th>Urutan</th>
+                  <th>Nama</th>
+                  <th>Jabatan</th>
                   <th>Tanggal</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <?php if (isset($bmee)) : ?>
-                  <?php foreach ($bmee as $n => $value) : ?>
+                <?php if (isset($smallimg)) : ?>
+                  <?php foreach ($smallimg as $n => $value) : ?>
                     <tr>
                       <th class="align-middle text-center" scope="row"><?= $n + 1; ?></th>
+                      <td class="align-middle"><img src="/gambar/smallimg/<?= $value['gambar'] ?> " class="rounded mx-auto d-block" alt="<?= $value['gambar']; ?>" style="max-width: 100px; max-height: 100px;"></td>
+                      <td class="align-middle"><?= $value['nama']; ?></td>
+                      <td class="align-middle"><?= $value['jabatan']; ?></td>
+                      <td class="align-middle"><?= $value['updated_at']; ?></td>
                       <td class="align-middle">
-                        <a class="btn btn-sm" href="#" style="display: block; margin: auto;"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-sm" href="/home/pictures/smallimg/edit/<?= $value['id']; ?>" style="display: block; margin: auto;"><i class="fas fa-edit"></i></a>
                       </td>
-                      <td class="align-middle"><?= $value['isi']; ?></td>
-                      <td class="align-middle"><?= $value['waktu']; ?></td>
                     </tr>
                   <?php endforeach; ?>
                 <?php endif; ?>

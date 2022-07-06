@@ -7,6 +7,7 @@ use App\Models\DataModel;
 use App\Models\UsersModel;
 use App\Models\PindahModel;
 use App\Models\BigimgModel;
+use App\Models\SmallimgModel;
 use App\Models\VideoytModel;
 use App\Models\VisitorModel;
 use App\Models\MeninggalModel;
@@ -21,6 +22,7 @@ class Auth extends BaseController
         $this->datamodel = new DataModel();
         $this->usersmodel = new UsersModel();
         $this->bigimgmodel = new BigimgModel();
+        $this->smallimgmodel = new SmallimgModel();
         $this->pindahmodel = new PindahModel();
         $this->videoytmodel = new VideoytModel();
         $this->visitor_model = new VisitorModel();
@@ -1315,6 +1317,7 @@ class Auth extends BaseController
             'user'          => $this->user,
             'uri'           => $this->uri,
             'bigimg'        => $this->bigimgmodel->findAll(),
+            'smallimg'      => $this->smallimgmodel->findAll(),
         ];
         return view('/dashboard/pict/pict', $data);
     }
@@ -1438,6 +1441,106 @@ class Auth extends BaseController
             'uri'           => $this->uri,
             'validation'    => Services::validation()
         ];
-        return view('/dashboard/pict/bigimgadd', $data);
+        return view('/dashboard/pict/smallimgadd', $data);
+    }
+
+    public function smallimgaddprocess()
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama untuk gambar diperlukan'
+                ]
+            ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jabatan untuk gambar diperlukan'
+                ]
+            ],
+            'gambar' => [
+                'rules'  => 'uploaded[gambar]|max_size[gambar,5120]|ext_in[gambar,png,jpg,jpeg]|mime_in[gambar,image/png,image/jpg,image/jpeg]',
+                'errors' => [
+                    'uploaded'  => 'Gambar diperlukan',
+                    'max_size'  => 'Ukuran gambar maksimal 5 MB',
+                    'ext_in'    => 'File harus sebuah gambar',
+                    'mime_in'   => 'File harus sebuah gambar',
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput();
+        }
+        $post = $this->request->getPost();
+
+        $gambar = $this->request->getFile('gambar');
+        $newName = $gambar->getRandomName();
+        $gambar->move('gambar/smallimg', $newName);
+
+        $post['gambar'] = $newName;
+
+        $this->smallimgmodel->insert($post);
+        session()->setFlashdata('pictures', 'Gambar kecil berhasil ditambahkan');
+        return redirect()->to('/home/pictures');
+    }
+
+    public function smallimgedit($id)
+    {
+        $data = [
+            'title' => 'Edit Small Image | Padukuhan Kedung Dayak',
+            'user'  => $this->user,
+            'uri'   => $this->uri,
+            'data'  => $this->smallimgmodel->where('id', $id)->first(),
+            'validation'    => Services::validation(),
+        ];
+        return view('/dashboard/pict/smallimgedit', $data);
+    }
+
+    public function smallimgeditprocess($id)
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Judul untuk gambar diperlukan'
+                ]
+            ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Sub judul untuk gambar diperlukan'
+                ]
+            ],
+            'gambar' => [
+                'rules'  => 'permit_empty|uploaded[gambar]|max_size[gambar,5120]|ext_in[gambar,png,jpg,jpeg]|mime_in[gambar,image/png,image/jpg,image/jpeg]',
+                'errors' => [
+                    'uploaded'  => 'Gambar diperlukan',
+                    'max_size'  => 'Ukuran gambar maksimal 5 MB',
+                    'ext_in'    => 'File harus sebuah gambar',
+                    'mime_in'   => 'File harus sebuah gambar',
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput();
+        }
+        $post = $this->request->getPost();
+        $gambar = $this->request->getFile('newimg');
+
+        if ($gambar->isValid()) {
+            $newName = $gambar->getRandomName();
+            $gambar->move('gambar/smallimg', $newName);
+            $post['gambar'] = $newName;
+        }
+
+        $this->smallimgmodel->update($id, $post);
+        session()->setFlashdata('pictures', 'Gambar kecil diubah');
+        return redirect()->to('/home/pictures');
+    }
+
+    public function smallimgdelete($id)
+    {
+        $this->smallimgmodel->delete($id);
+        session()->setFlashdata('pictures', 'Gambar kecil berhasil dihapus');
+        return redirect()->to('/home/pictures');
     }
 }

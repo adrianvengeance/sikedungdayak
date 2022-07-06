@@ -9,7 +9,7 @@ class SmallimgModel extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'smallimg';
     protected $primaryKey       = 'id';
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nama', 'jabatan', 'gambar'];
 
     // Dates
     protected $useTimestamps = true;
