@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Codeigniter\HTTP\URI;
 use App\Models\BigimgModel;
+use App\Models\SmallimgModel;
 use App\Models\VisitorModel;
 use App\Models\VideoytModel;
 use App\Models\PengungumanModel;
@@ -14,6 +15,7 @@ class Home extends BaseController
     public function __construct()
     {
         $this->bigimgmodel = new BigimgModel();
+        $this->smallimgmodel = new SmallimgModel();
         $this->visitormodel = new VisitorModel();
         $this->videoytmodel = new VideoytModel();
         $this->visitor_model = new VisitorModel();
@@ -47,10 +49,13 @@ class Home extends BaseController
     public function index()
     {
         $bigimg = $this->bigimgmodel->findAll();
+        $smallimg = $this->smallimgmodel->findAll();
         $data = [
             'title' => 'Padukuhan Kedung Dayak',
             'bigimg'   => $bigimg,
-            'bigimgmin1' => (count($bigimg) - 1)
+            'bigimgmin1' => (count($bigimg) - 1),
+            'smallimg' => $smallimg,
+            'smallimgmin1' => (count($smallimg) - 1)
         ];
 
         return view('homepage', $data);

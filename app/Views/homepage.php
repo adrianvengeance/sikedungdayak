@@ -166,61 +166,78 @@
             <h5>Padukuhan Kedung Dayak</h5>
         </div> -->
     <div class="col-12 justify-content-center owl-carousel mt-3">
-      <div class="item">
-        <div class="card h-100">
-          <div class="card-img-top">
-            <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+      <?php if (!empty($smallimg)) : ?>
+        <?php foreach ($smallimg as $x => $value) : ?>
+          <div class="item">
+            <div class="card h-100">
+              <div class="card-img-top">
+                <img src="<?= '/gambar/smallimg/' . $value['gambar']; ?>" class="w-100" style="width: 100%;" alt="<?= $value['nama']; ?>">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title mb-0 pb-0"><?= $value['nama']; ?></h5>
+                <p class="card-text"><?= $value['jabatan']; ?></p>
+              </div>
+            </div>
           </div>
-          <div class="card-body text-center">
-            <h5 class="card-title mb-0 pb-0">Budi</h5>
-            <p class="card-text">Carik</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="card h-100">
-          <div class="card-img-top">
-            <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title mb-0 pb-0">Budi</h5>
-            <p class="card-text">Carik</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="card h-100">
-          <div class="card-img-top">
-            <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title mb-0 pb-0">Budi</h5>
-            <p class="card-text">Carik</p>
+        <?php endforeach ?>
+      <?php else : ?>
+
+        <div class="item">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0 pb-0">Budi</h5>
+              <p class="card-text">Carik</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="item">
-        <div class="card h-100">
-          <div class="card-img-top">
-            <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title mb-0 pb-0">Budi</h5>
-            <p class="card-text">Carik</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="card h-100">
-          <div class="card-img-top">
-            <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title mb-0 pb-0">Budi</h5>
-            <p class="card-text">Carik</p>
+        <div class="item">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0 pb-0">Budi</h5>
+              <p class="card-text">Carik</p>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="item">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0 pb-0">Budi</h5>
+              <p class="card-text">Carik</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0 pb-0">Budi</h5>
+              <p class="card-text">Carik</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="card h-100">
+            <div class="card-img-top">
+              <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0 pb-0">Budi</h5>
+              <p class="card-text">Carik</p>
+            </div>
+          </div>
+        </div>
+      <?php endif ?>
     </div>
   </div>
 </div>
