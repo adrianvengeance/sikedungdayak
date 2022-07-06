@@ -89,7 +89,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <form action="" method="post">
+        <form action="/home/pictures/bigimg/hapus/<?= $data['id'] ?>" method="post">
           <?= csrf_field(); ?>
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>

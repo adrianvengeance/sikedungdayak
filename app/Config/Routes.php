@@ -149,6 +149,8 @@ $routes->get('/home/pictures/bigimg/add', 'Auth::bigimgadd');
 $routes->post('/home/pictures/bigimg/addprocess', 'Auth::bigimgaddprocess');
 $routes->get('/home/pictures/bigimg/edit/(:num)', 'Auth::bigimgedit/$1');
 $routes->post('/home/pictures/bigimg/editprocess/(:num)', 'Auth::bigimgeditprocess/$1');
+$routes->delete('/home/pictures/bigimg/hapus/(:num)', 'Auth::bigimgdelete/$1');
+$routes->get('/home/pictures/smallimg/add', 'Auth::smallimgadd');
 
 $routes->post('/kritiksaranprocess', 'Home::kritiksaran');
 $routes->get('/kritikdansaran', 'Home::hasilkritiksaran');

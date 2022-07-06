@@ -1422,4 +1422,22 @@ class Auth extends BaseController
         session()->setFlashdata('pictures', 'Gambar besar diubah');
         return redirect()->to('/home/pictures');
     }
+
+    public function bigimgdelete($id)
+    {
+        $this->bigimgmodel->delete($id);
+        session()->setFlashdata('pictures', 'Gambar besar berhasil dihapus');
+        return redirect()->to('/home/pictures');
+    }
+
+    public function smallimgadd()
+    {
+        $data  = [
+            'title'         => 'Tambah Gambar Kecil | Padukuhan Kedung Dayak',
+            'user'          => $this->user,
+            'uri'           => $this->uri,
+            'validation'    => Services::validation()
+        ];
+        return view('/dashboard/pict/bigimgadd', $data);
+    }
 }

@@ -80,12 +80,12 @@
               <div class="col-md-6">
                 <div class="d-md-none">
                   <div class="text-center row px-3">
-                    <a class="btn btn-primary text-white btn-sm" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
+                    <a class="btn btn-primary text-white btn-sm" href="/home/pictures/smallimg/add" style="width: 50px;"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
                 <div class="d-none d-md-block">
                   <div class="float-end mt-2">
-                    <a class="btn btn-primary text-white btn-sm" href="#" style="width: 50px;"><i class="fas fa-plus"></i></a>
+                    <a class="btn btn-primary text-white btn-sm" href="/home/pictures/smallimg/add" style="width: 50px;"><i class="fas fa-plus"></i></a>
                   </div>
                 </div>
               </div>

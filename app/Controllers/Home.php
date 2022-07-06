@@ -52,7 +52,6 @@ class Home extends BaseController
             'bigimg'   => $bigimg,
             'bigimgmin1' => (count($bigimg) - 1)
         ];
-        // dd($data['bigimg-1']);
 
         return view('homepage', $data);
     }
