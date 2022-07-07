@@ -29,6 +29,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- autocolors -->
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+  <!-- google reCaptcha -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 
@@ -158,19 +160,20 @@
             <div class="krtkdansrn">
               <form action="/kritiksaranprocess" method="POST">
                 <?= csrf_field(); ?>
-                <fieldset disabled="disabled">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control form-control-sm" placeholder="" name="niknama" id="floatingInput" required>
-                    <label for="floatingInput"><small>NIK atau Nama</small></label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <textarea class="form-control form-control-sm" placeholder="" name="isi" id="floatingTextarea" spellcheck="false" required></textarea>
-                    <label for="floatingTextarea"><small>Komentar</small></label>
-                  </div>
-                  <div class="row mx-0 ">
-                    <button class="col-4 mx-auto btn btn-outline-success btn-sm" type="submit">Submit</button>
-                  </div>
-                </fieldset>
+                <!-- <fieldset disabled="disabled"> -->
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control form-control-sm" placeholder="" name="niknama" id="floatingInput" required>
+                  <label for="floatingInput"><small>NIK atau Nama</small></label>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control form-control-sm" placeholder="" name="isi" id="floatingTextarea" spellcheck="false" required></textarea>
+                  <label for="floatingTextarea"><small>Komentar</small></label>
+                </div>
+                <div class="g-recaptcha" data-sitekey="<?= env('RECAPTCHAV3_SITEKEY') ?>"></div>
+                <div class="row mx-0 ">
+                  <button class="col-4 mx-auto btn btn-outline-success btn-sm" type="submit">Submit</button>
+                </div>
+                <!-- </fieldset> -->
               </form>
             </div>
           </div>

@@ -366,4 +366,40 @@ class Home extends BaseController
         $this->kritiksaranmodel->insert($post);
         return redirect()->to($lastUrl);
     }
+
+    public function googlerecaptcha()
+    {
+        $recaptchaResponse = trim($this->request->getVar('g-recaptcha-response'));
+
+        // form data
+
+        $secret = env('RECAPTCHAV2_SITEKEY');
+
+        $credential = array(
+            'secret' => $secret,
+            'response' => $recaptchaResponse
+        );
+
+        $verify = curl_init();
+        curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($verify, CURLOPT_POST, true);
+        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
+        curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($verify);
+
+        $status = json_decode($response, true);
+
+        $session = session();
+
+        if ($status['success']) {
+
+            $session->setFlashdata('msg', 'Form has been successfully submitted');
+        } else {
+
+            $session->setFlashdata('msg', 'Please check your inputs');
+        }
+
+        return redirect()->to('form');
+    }
 }
