@@ -91,20 +91,20 @@ p.lmbmsykrt:hover {
 
 /* --------hero------- */
 
-img.img-fluid {
+img.bigBsCarousel {
   /* width: 1116px;*/
   height: 620px;
   object-fit: contain;
 }
 
 @media (max-width: 991px) {
-  img.img-fluid {
+  img.bigBsCarousel {
     /* width: 556px; */
     max-height: 520px;
   }
 }
 @media (max-width: 767px) {
-  img.img-fluid {
+  img.bigBsCarousel {
     /* width: 268px;*/
     max-height: 420px;
   }

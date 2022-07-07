@@ -26,6 +26,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="<?= base_url('/assets/css/indexhome.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/mycustom.css'); ?>">
 
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/Logo-Bantul-1x1-min.png') ?>" />

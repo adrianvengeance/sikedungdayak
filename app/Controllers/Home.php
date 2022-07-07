@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Codeigniter\HTTP\URI;
+use App\Models\NewsModel;
 use App\Models\BigimgModel;
 use App\Models\SmallimgModel;
 use App\Models\VisitorModel;
@@ -14,6 +15,7 @@ class Home extends BaseController
 {
     public function __construct()
     {
+        $this->newsmodel = new NewsModel();
         $this->bigimgmodel = new BigimgModel();
         $this->smallimgmodel = new SmallimgModel();
         $this->visitormodel = new VisitorModel();
@@ -50,12 +52,18 @@ class Home extends BaseController
     {
         $bigimg = $this->bigimgmodel->findAll();
         $smallimg = $this->smallimgmodel->findAll();
+        $berita = $this->newsmodel->getNewsGroup();
+        foreach ($berita as $x => $row) {
+            $news[$row->created_at] = $row;
+        }
+
         $data = [
             'title' => 'Padukuhan Kedung Dayak',
             'bigimg'   => $bigimg,
             'bigimgmin1' => (count($bigimg) - 1),
             'smallimg' => $smallimg,
-            'smallimgmin1' => (count($smallimg) - 1)
+            'smallimgmin1' => (count($smallimg) - 1),
+            'berita'    => array_slice($news, 0, 4)
         ];
 
         return view('homepage', $data);
