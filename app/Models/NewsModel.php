@@ -38,4 +38,11 @@ class NewsModel extends Model
         $builder->orderBy('created_at', 'DESC');
         return $builder->get()->getResult();
     }
+
+    public function getNewest()
+    {
+        // $query = $this->query("SELECT * FROM news ORDER BY UNIX_TIMESTAMP(updated_at) DESC");
+        $query = $this->query("SELECT *, DATE(updated_at) as mydate, TIME(updated_at) as mytime FROM news ORDER BY mydate DESC, mytime DESC");
+        return $query->getResult();
+    }
 }
