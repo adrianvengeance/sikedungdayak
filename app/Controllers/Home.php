@@ -367,39 +367,39 @@ class Home extends BaseController
         return redirect()->to($lastUrl);
     }
 
-    public function googlerecaptcha()
-    {
-        $recaptchaResponse = trim($this->request->getVar('g-recaptcha-response'));
+    // public function googlerecaptcha()
+    // {
+    //     $recaptchaResponse = trim($this->request->getVar('g-recaptcha-response'));
 
-        // form data
+    //     // form data
 
-        $secret = env('RECAPTCHAV2_SITEKEY');
+    //     $secret = env('RECAPTCHAV2_SITEKEY');
 
-        $credential = array(
-            'secret' => $secret,
-            'response' => $recaptchaResponse
-        );
+    //     $credential = array(
+    //         'secret' => $secret,
+    //         'response' => $recaptchaResponse
+    //     );
 
-        $verify = curl_init();
-        curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-        curl_setopt($verify, CURLOPT_POST, true);
-        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
-        curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($verify);
+    //     $verify = curl_init();
+    //     curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+    //     curl_setopt($verify, CURLOPT_POST, true);
+    //     curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
+    //     curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+    //     curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+    //     $response = curl_exec($verify);
 
-        $status = json_decode($response, true);
+    //     $status = json_decode($response, true);
 
-        $session = session();
+    //     $session = session();
 
-        if ($status['success']) {
+    //     if ($status['success']) {
 
-            $session->setFlashdata('msg', 'Form has been successfully submitted');
-        } else {
+    //         $session->setFlashdata('msg', 'Form has been successfully submitted');
+    //     } else {
 
-            $session->setFlashdata('msg', 'Please check your inputs');
-        }
+    //         $session->setFlashdata('msg', 'Please check your inputs');
+    //     }
 
-        return redirect()->to('form');
-    }
+    //     return redirect()->to('form');
+    // }
 }

@@ -169,7 +169,6 @@
                   <textarea class="form-control form-control-sm" placeholder="" name="isi" id="floatingTextarea" spellcheck="false" required></textarea>
                   <label for="floatingTextarea"><small>Komentar</small></label>
                 </div>
-                <div class="g-recaptcha" data-sitekey="<?= env('RECAPTCHAV3_SITEKEY') ?>"></div>
                 <div class="row mx-0 ">
                   <button class="col-4 mx-auto btn btn-outline-success btn-sm" type="submit">Submit</button>
                 </div>

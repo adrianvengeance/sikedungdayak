@@ -1543,4 +1543,11 @@ class Auth extends BaseController
         session()->setFlashdata('pictures', 'Gambar kecil berhasil dihapus');
         return redirect()->to('/home/pictures');
     }
+
+    public function kritiksarandelete($id)
+    {
+        $this->kritiksaranmodel->delete($id);
+        session()->setFlashdata('widget', 'Kritik dan saran berhasil dihapus');
+        return redirect()->to('/home/widget');
+    }
 }

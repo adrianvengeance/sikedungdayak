@@ -138,7 +138,7 @@
                       <td class="align-middle"><?= $ks['isi']; ?></td>
                       <td class="align-middle"><?= date("Y:m:d", strtotime($ks['created_at'])); ?></td>
                       <td class="align-middle">
-                        <a class="btn btn-sm disabled" data-bs-toggle="modal" data-bs-target="#ksModal" style="display: block; margin: auto;"><i class="fas fa-trash-alt"></i></a>
+                        <a class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#ksModal" data-id="<?= $ks['id']; ?>" data-nama="<?= $ks['niknama'] ?>" id="ksDeleteBtn" style="display: block; margin: auto;"><i class="fas fa-trash-alt"></i></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -298,7 +298,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        Select "Delete" below if you are sure to delete.
+        Select "Delete" below if you are sure to delete critic dan suggestion from
       </div>
 
       <!-- Modal footer -->

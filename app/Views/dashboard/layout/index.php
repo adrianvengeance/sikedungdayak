@@ -265,11 +265,23 @@
     });
   </script>
 
+  <!-- ksModaldelete -->
+  <script>
+    $(document).on("click", "#ksDeleteBtn", function() {
+      var nama = $(this).data('nama');
+      var id = $(this).data('id');
+      console.log(nama)
+
+      $("#ksModal .modal-body").append(nama);
+      $("#ksModal .modal-footer form").attr("action", "<?= base_url('/home/kritiksaran/delete') ?>" + '/' + id);
+    });
+  </script>
+
   <script>
     $(document).on("click", "#deleteAkun", function() {
       var nama = $(this).data('nama');
       var id = $(this).data('id');
-      console.log(nama, id)
+      // console.log(nama, id)
 
       $(".modal-body #deleteNama").text(nama);
       $(".modal-footer #deleteForm").attr("action", "<?= base_url('/home/accounts/delete') ?>" + '/' + id);
@@ -288,7 +300,6 @@
       });
     });
   </script>
-
 
 </body>
 

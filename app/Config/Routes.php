@@ -159,6 +159,7 @@ $routes->delete('/home/pictures/smallimg/hapus/(:num)', 'Auth::smallimgdelete/$1
 
 $routes->post('/kritiksaranprocess', 'Home::kritiksaran');
 $routes->get('/kritikdansaran', 'Home::hasilkritiksaran');
+$routes->delete('/home/kritiksaran/delete/(:num)', 'Auth::kritiksarandelete/$1');
 
 
 
