@@ -91,20 +91,33 @@ p.lmbmsykrt:hover {
 
 /* --------hero------- */
 
-img.bigBsCarousel {
+.bigBsCarousel {
   /* width: 1116px;*/
   height: 620px;
-  object-fit: contain;
+  object-fit: contain;    
+}
+
+.bigBsCarousel.active{
+  -webkit-animation: fadein 7s;
+  -moz-animation: fadein 7s;
+  -ms-animation: fadein 7s; 
+  -o-animation: fadein 7s; 
+  animation: fadein 7s;  
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @media (max-width: 991px) {
-  img.bigBsCarousel {
+  .bigBsCarousel {
     /* width: 556px; */
     max-height: 520px;
   }
 }
 @media (max-width: 767px) {
-  img.bigBsCarousel {
+  .bigBsCarousel {
     /* width: 268px;*/
     max-height: 420px;
   }

@@ -57,9 +57,7 @@
             </div>
         </div> -->
 
-    <!-- data-aos-duration="1000" -->
-    <div class="hero-info" data-aos="zoom-in-up">
-
+    <div class="hero-info" data-aos="fade-down" data-aos-duration="1000">
       <h2>Sistem Informasi<br>Padukuhan<span class=""> Kedung Dayak</span></h2>
       <div>
         <a href="/rumahdata" class="btn btn-get-started scrollto">Penduduk</a>
@@ -70,7 +68,7 @@
   </div>
 </section>
 
-<div class="container mt-5" style="font-family: Montserrat, sans-serif;">
+<div class="container mt-5" style="font-family: Montserrat, sans-serif;" data-aos="fade-down" data-aos-once="true" data-aos-duration="1000">
   <div class="row">
     <div id="carouselExampleCaptions" class="carousel slide slidehomee bigcrsl" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -89,7 +87,8 @@
         <?php if (!empty($bigimg)) : ?>
           <?php foreach ($bigimg as $x => $value) : ?>
             <div class="carousel-item <?= $bicount == 0 ? "active" : ""; ?>">
-              <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" loading="lazy" alt="<?= $value['title']; ?>">
+              <!-- <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" alt="<?= $value['title']; ?>" loading="eager"> -->
+              <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" alt="<?= $value['title']; ?>" loading="eager">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class=""><mark><?= $value['title']; ?></mark></h5>
                 <p><mark><?= $value['subtitle']; ?></mark></p>
@@ -134,7 +133,7 @@
 
 <!-- mobile -->
 <div class="d-sm-none">
-  <div class="container" data-aos="fade-down" data-aos-duration="5000">
+  <div class="container" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-once="true">
     <div class="row lpk" style="font-family: Montserrat, sans-serif;">
       <div class="col-12 py-3 px-3">
         <a class="btn d-flex justify-content-center py-4 lapak" href="/lapak">
@@ -146,7 +145,7 @@
 </div>
 <!-- desktop -->
 <div class="d-none d-sm-block">
-  <div class="container py-3" data-aos="fade-down" data-aos-duration="5000">
+  <div class="container py-3" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-once="true">
     <div class="row" style="font-family: Montserrat, sans-serif;">
       <div class="col mx-3 lapak">
         <a class="btn text-center py-4 d-flex justify-content-center lapak" href="/lapak">
@@ -157,7 +156,7 @@
   </div>
 </div>
 
-<div class="container mb-3">
+<div class="container mb-3" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
   <div class="row">
     <div class="col-12">
       <p class="text-success fs-3 border-top border-3">Berita Terbaru..</p>
@@ -191,7 +190,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
   <div class="row owlcrsl mb-4 mx-1 px-1">
     <!-- <div class="col-12 text-center text-white py-2">
             <h4 class="mb-0">Pemerintah Kabupaten Bantul</h4>

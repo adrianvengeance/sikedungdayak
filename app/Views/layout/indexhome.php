@@ -125,7 +125,7 @@
         <i class="bi bi-arrow-up"></i>
     </button>
 
-    <footer id="footer">
+    <footer id="footer" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -228,6 +228,9 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+    </script>
+    <script>
+
     </script>
 </body>
 
