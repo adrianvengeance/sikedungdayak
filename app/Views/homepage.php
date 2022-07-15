@@ -89,7 +89,7 @@
         <?php if (!empty($bigimg)) : ?>
           <?php foreach ($bigimg as $x => $value) : ?>
             <div class="carousel-item <?= $bicount == 0 ? "active" : ""; ?>">
-              <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" alt="<?= $value['title']; ?>">
+              <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" loading="lazy" alt="<?= $value['title']; ?>">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class=""><mark><?= $value['title']; ?></mark></h5>
                 <p><mark><?= $value['subtitle']; ?></mark></p>
@@ -170,7 +170,7 @@
           <div class="row g-0">
             <div class="col-5 col-sm-4">
               <div class="ratio ratio-1x1">
-                <img src="/kontenberita/<?= $row->groupmonth . '/' . $row->author . '/' . $row->image; ?>" class="ora img-fluid rounded-start" alt="<?= $row->image; ?>" style="width: 100%; object-fit: cover;">
+                <img src="/kontenberita/<?= $row->groupmonth . '/' . $row->author . '/' . $row->image; ?>" class="ora img-fluid rounded-start" alt="<?= $row->image; ?>" loading="lazy" style="width: 100%; object-fit: cover;">
               </div>
             </div>
             <div class="col-7 col-sm-8">
@@ -204,7 +204,7 @@
           <div class="item">
             <div class="card h-100">
               <div class="card-img-top">
-                <img src="<?= '/gambar/smallimg/' . $value['gambar']; ?>" class="w-100" style="width: 100%;" alt="<?= $value['nama']; ?>">
+                <img src="<?= '/gambar/smallimg/' . $value['gambar']; ?>" loading="lazy" class="w-100" style="width: 100%;" alt="<?= $value['nama']; ?>">
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title mb-0 pb-0"><?= $value['nama']; ?></h5>
