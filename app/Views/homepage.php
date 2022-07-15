@@ -57,8 +57,8 @@
             </div>
         </div> -->
 
-
-    <div class="hero-info" data-aos="fade-in" data-aos-delay="500">
+    <!-- data-aos-duration="1000" -->
+    <div class="hero-info" data-aos="zoom-in-up">
 
       <h2>Sistem Informasi<br>Padukuhan<span class=""> Kedung Dayak</span></h2>
       <div>
@@ -70,7 +70,7 @@
   </div>
 </section>
 
-<div class="container mt-5" style="font-family: Montserrat, sans-serif;" data-aos="fade-up" data-aos-delay="500">
+<div class="container mt-5" style="font-family: Montserrat, sans-serif;">
   <div class="row">
     <div id="carouselExampleCaptions" class="carousel slide slidehomee bigcrsl" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -134,7 +134,7 @@
 
 <!-- mobile -->
 <div class="d-sm-none">
-  <div class="container">
+  <div class="container" data-aos="fade-down" data-aos-duration="5000">
     <div class="row lpk" style="font-family: Montserrat, sans-serif;">
       <div class="col-12 py-3 px-3">
         <a class="btn d-flex justify-content-center py-4 lapak" href="/lapak">
@@ -146,7 +146,7 @@
 </div>
 <!-- desktop -->
 <div class="d-none d-sm-block">
-  <div class="container py-3">
+  <div class="container py-3" data-aos="fade-down" data-aos-duration="5000">
     <div class="row" style="font-family: Montserrat, sans-serif;">
       <div class="col mx-3 lapak">
         <a class="btn text-center py-4 d-flex justify-content-center lapak" href="/lapak">
