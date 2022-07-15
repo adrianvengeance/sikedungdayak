@@ -58,7 +58,7 @@
         </div> -->
 
 
-    <div class="hero-info" data-aos="zoom-in" data-aos-delay="100">
+    <div class="hero-info" data-aos="fade-in" data-aos-delay="500">
 
       <h2>Sistem Informasi<br>Padukuhan<span class=""> Kedung Dayak</span></h2>
       <div>
@@ -70,7 +70,7 @@
   </div>
 </section>
 
-<div class="container mt-5" style="font-family: Montserrat, sans-serif;">
+<div class="container mt-5" style="font-family: Montserrat, sans-serif;" data-aos="fade-up" data-aos-delay="500">
   <div class="row">
     <div id="carouselExampleCaptions" class="carousel slide slidehomee bigcrsl" data-bs-ride="carousel">
       <div class="carousel-indicators">
