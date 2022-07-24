@@ -229,9 +229,7 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
-    <script>
 
-    </script>
 </body>
 
 </html>

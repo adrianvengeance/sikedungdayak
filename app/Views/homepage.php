@@ -68,7 +68,7 @@
   </div>
 </section>
 
-<div class="container mt-5" style="font-family: Montserrat, sans-serif;" data-aos="fade-down" data-aos-once="true" data-aos-duration="1000">
+<div class="container mt-3" id="bigcrsl" style="font-family: Montserrat, sans-serif;" data-aos="fade-down" data-aos-once="true" data-aos-duration="1000">
   <div class="row">
     <div id="carouselExampleCaptions" class="carousel slide slidehomee bigcrsl" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -92,6 +92,10 @@
               <div class="carousel-caption d-none d-md-block">
                 <h5 class=""><mark><?= $value['title']; ?></mark></h5>
                 <p><mark><?= $value['subtitle']; ?></mark></p>
+              </div>
+              <div class="carousel-caption d-md-none">
+                <h6 class=""><mark><?= $value['title']; ?></mark></h6>
+                <small><mark><?= $value['subtitle']; ?></mark></small>
               </div>
             </div>
             <?php $bicount++; ?>
