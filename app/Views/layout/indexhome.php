@@ -74,7 +74,7 @@
                                 </ul>
                             </li>
                             <li class="d-xl-none d-xxl-block">
-                                <p class="dropdown-item mb-0 lmbmsykrt">Lembaga Masyarakat &raquo;</p>
+                                <p class="dropdown-item mb-0 lembagamasyarakat">Lembaga Masyarakat &raquo;</p>
                             </li>
                             <div class="ms-3 d-xl-none d-xxl-block">
                                 <li><a class="dropdown-item" href="/pemerintahan/karangtaruna">Karang Taruna</a></li>

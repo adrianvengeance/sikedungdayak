@@ -68,7 +68,7 @@ a.dropdown-item:hover {
   margin: auto 1rem;
 }
 
-.cariiform input {
+/* .cariiform input {
   height: 14px;
 }
 .cariiform button {
@@ -83,7 +83,8 @@ a.dropdown-item:hover {
   form.cariiform {
     margin: 0px 10px;
   }
-}
+} */
+
 p.lmbmsykrt:hover {
   color: #fff;
   background-color: #39976c;
@@ -110,16 +111,10 @@ p.lmbmsykrt:hover {
   to   { opacity: 1; }
 }
 
-@media (max-width: 991px) {
-  .bigBsCarousel {
-    /* width: 556px; */
-    max-height: 520px;
-  }
-}
 @media (max-width: 767px) {
   .bigBsCarousel {
     /* width: 268px;*/
-    max-height: 420px;
+    max-height: 320px;
   }
 }
 @media (max-width: 1200px) {
@@ -130,16 +125,20 @@ p.lmbmsykrt:hover {
 
 #hero {
   width: 100%;
-  padding: 50px 0 50px 0;
+  padding: 50px 0 100px 0;
   position: relative;
-  background: url("/assets/img/web-bg-500-700-min.png?>") center bottom
-    no-repeat;
+  background: url("/assets/img/web-bg-500-700-min.png") center bottom no-repeat;
+  /* background: url("/assets/img/web-bg-500-700-min-exportas.png") center bottom no-repeat; */
   background-size: cover;
 }
 
 @media (max-width: 991px) {
   #hero {
     padding: 50px 0 60px 0;
+  }
+  .bigBsCarousel {
+    /* width: 556px; */
+    max-height: 420px;
   }
 }
 

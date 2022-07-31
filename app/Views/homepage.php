@@ -2,61 +2,8 @@
 
 <?= $this->section('content'); ?>
 
-<!-- Card -->
-<!-- <div class="card shadow-1-strong pt-0 mt-0" style="width: 100%; height: auto; background-image: url('');">
-    <div class="container-lg">
-        <div class="row">
-            <div class="col">
-                <div class="card-body text-white px-0">
-                    <h1 class="card-title">Card title</h1>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#!" class="btn btn-outline-light">Button</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Card -->
-
 <section id="hero" class="" style="font-family: 'Montserrat', sans-serif;">
   <div class="container" data-aos="fade-up">
-
-    <!-- <div class="hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://images.unsplash.com/photo-1442544213729-6a15f1611937?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" class="img-fluid d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1572908721147-0a9eb395762d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="img-fluid d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1591866497533-403d44694fa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" class="img-fluid d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="hero-info" data-aos="zoom-in" data-aos-delay="100">
-
-            <h2>Sistem Informasi<br>Pedukuhan<br><span class="underline">Kedung Dayak</span></h2>
-            <div>
-                <a href="#about" class="btn btn-get-started scrollto">Get Started</a>
-                <a href="#services" class="btn btn-services scrollto">Our Services</a>
-            </div>
-        </div> -->
-
     <div class="hero-info" data-aos="fade-down" data-aos-duration="1000">
       <h2>Sistem Informasi<br>Padukuhan<span class=""> Kedung Dayak</span></h2>
       <div>
@@ -64,11 +11,10 @@
         <a href="/login" class="btn btn-services scrollto">Login</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<div class="container mt-3" id="bigcrsl" style="font-family: Montserrat, sans-serif;" data-aos="fade-down" data-aos-once="true" data-aos-duration="1000">
+<div class="container" id="bigcrsl" style="font-family: Montserrat, sans-serif;" data-aos="fade-down" data-aos-once="true" data-aos-duration="1000">
   <div class="row">
     <div id="carouselExampleCaptions" class="carousel slide slidehomee bigcrsl" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -87,16 +33,7 @@
         <?php if (!empty($bigimg)) : ?>
           <?php foreach ($bigimg as $x => $value) : ?>
             <div class="carousel-item <?= $bicount == 0 ? "active" : ""; ?>">
-              <!-- <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" alt="<?= $value['title']; ?>" loading="eager"> -->
               <img src="<?= '/gambar/bigimg/' . $value['gambar']; ?>" class="bigBsCarousel img-fluid d-block w-100" alt="<?= $value['title']; ?>" loading="eager">
-              <div class="carousel-caption d-none d-md-block">
-                <h5 class=""><mark><?= $value['title']; ?></mark></h5>
-                <p><mark><?= $value['subtitle']; ?></mark></p>
-              </div>
-              <div class="carousel-caption d-md-none">
-                <h6 class=""><mark><?= $value['title']; ?></mark></h6>
-                <small><mark><?= $value['subtitle']; ?></mark></small>
-              </div>
             </div>
             <?php $bicount++; ?>
           <?php endforeach; ?>
@@ -104,24 +41,12 @@
 
           <div class="carousel-item active">
             <img src="https://dummyimage.com/1920x1080/737273/000000" class="img-fluid d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class=""><mark>First slide label</mark></h5>
-              <p><mark>Some representative placeholder content for the first slide.</mark></p>
-            </div>
           </div>
           <div class="carousel-item">
             <img src="https://dummyimage.com/1920x1140/737273/000000" class="img-fluid d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class=""><mark>Second slide label</mark></h5>
-              <p class=""><mark>Some representative placeholder content for the second slide.</mark></p>
-            </div>
           </div>
           <div class="carousel-item">
             <img src="https://dummyimage.com/1080x1920/737273/000000" class="img-fluid d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5><mark>Third slide label</mark></h5>
-              <p><mark>Some representative placeholder content for the third slide.</mark></p>
-            </div>
           </div>
         <?php endif; ?>
       </div>
@@ -196,11 +121,6 @@
 
 <div class="container" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
   <div class="row owlcrsl mb-4 mx-1 px-1">
-    <!-- <div class="col-12 text-center text-white py-2">
-            <h4 class="mb-0">Pemerintah Kabupaten Bantul</h4>
-            <h4 class="my-0">Kecamatan Jatimulyo</h4>
-            <h5>Padukuhan Kedung Dayak</h5>
-        </div> -->
     <div class="col-12 justify-content-center owl-carousel mt-3">
       <?php if (!empty($smallimg)) : ?>
         <?php foreach ($smallimg as $x => $value) : ?>
