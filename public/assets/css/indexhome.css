@@ -27,18 +27,11 @@
   color: #39976c;
 }
 .collapse ul.navbar-nav li.nav-item a.nav-link.lloginn:hover {
-  color: #fff;
-  /* outline: 2px solid #39976c; */
+  color: #fff;  
 }
 
-/* a.  {
-  -webkit-transition: color 2s !important;
-  transition: color 2s !important;
-} */
-
 .navbar-collapse ul li.nav-item,
-.navbar-collapse ul li.nav-item a.nav-link {
-  /* color: #000; */
+.navbar-collapse ul li.nav-item a.nav-link {  
   border-radius: 10px;
 }
 
@@ -68,35 +61,18 @@ a.dropdown-item:hover {
   margin: auto 1rem;
 }
 
-/* .cariiform input {
-  height: 14px;
-}
-.cariiform button {
-  height: 31px;
-}
-@media (min-width: 1200px) {
-  .cariiform input {
-    width: 120px;
-  }
-}
-@media (max-width: 1200px) {
-  form.cariiform {
-    margin: 0px 10px;
-  }
-} */
-
 p.lmbmsykrt:hover {
   color: #fff;
   background-color: #39976c;
 }
 
-/* --------hero------- */
-
-.bigBsCarousel {
-  /* width: 1116px;*/
-  height: 620px;
-  object-fit: contain;    
+@media (max-width: 1200px) {
+  ul li.nav-item {
+    padding: 0px 10px;
+  }
 }
+
+/* --------hero------- */
 
 .bigBsCarousel.active{
   -webkit-animation: fadein 7s;
@@ -105,69 +81,62 @@ p.lmbmsykrt:hover {
   -o-animation: fadein 7s; 
   animation: fadein 7s;  
 }
-
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   .bigBsCarousel {
-    /* width: 268px;*/
-    max-height: 320px;
+    max-height: 300px;
+    object-fit: contain;
   }
 }
-@media (max-width: 1200px) {
-  ul li.nav-item {
-    padding: 0px 10px;
+@media (min-width: 576px) { 
+  .bigBsCarousel {    
+    max-height: 320px;
+    object-fit: contain;
   }
+}
+@media (min-width: 768px) { 
+  .bigBsCarousel {    
+    max-height: 420px;    
+    object-fit: contain;
+  }
+}
+@media (min-width: 992px) { 
+  .bigBsCarousel {    
+    max-height: 520px;
+    object-fit: contain;
+  }
+}
+@media (min-width: 1200px) {
+  .bigBsCarousel {
+    max-height: 720px;
+    object-fit: contain;    
+  }
+}
+
+
+.bigBsCarousel {
+  width: 100%;
 }
 
 #hero {
-  width: 100%;
-  padding: 50px 0 100px 0;
+  width: 100%;  
+  padding: 50px 0 10px 0;
   position: relative;
-  background: url("/assets/img/web-bg-500-700-min.png") center bottom no-repeat;
-  /* background: url("/assets/img/web-bg-500-700-min-exportas.png") center bottom no-repeat; */
+  background: url("/assets/img/web-bg-500-700-min-new.png") center bottom no-repeat;  
   background-size: cover;
 }
 
-@media (max-width: 991px) {
-  #hero {
-    padding: 50px 0 60px 0;
-  }
-  .bigBsCarousel {
-    /* width: 556px; */
-    max-height: 420px;
-  }
+#bigTitle {
+  padding-bottom: 50px;
 }
 
-@media (max-width: 574px) {
-  #hero {
-    padding: 50px 0 60px 0;
-  }
-}
-
-/* #hero .hero-img {
+#hero .hero-info {  
   width: 100%;
-  height: 720px;
- width: 50%; 
-  float: right;
-} */
-
-/* @media (max-width: 991px) {
-  #hero .hero-img {
-    margin: 0 auto 25px auto;
-    width: 80%;
-    float: none;
-  }
-} */
-
-#hero .hero-info {
-  /* width: 50%; */
-  width: 100%;
-  text-align: center;
-  /* float: left; */
+  text-align: center;  
 }
 
 @media (max-width: 991px) {
@@ -224,12 +193,6 @@ p.lmbmsykrt:hover {
     margin: 0 0 0 0;
   }
 }
-@media (max-width: 3611px) {
-  #hero .hero-info .btn-get-started,
-  #hero .hero-info .btn-services {
-    margin: 0 0 10px 0;
-  }
-}
 
 #hero .hero-info .btn-get-started {
   color: #000;
@@ -256,11 +219,6 @@ p.lmbmsykrt:hover {
 }
 
 /* --------Carousel IMG------- */
-
-/* .bigcrsl { */
-/* .slidehomee {
-  background-color: #eceff1;
-} */
 
 .slidehomee button.carousel-control-prev .tmblprev,
 .slidehomee button.carousel-control-next .tmblnext {
@@ -297,19 +255,15 @@ p.lmbmsykrt:hover {
 .lapak {
   background-color: #198653;
   color: #222222;
-  /* color: rgb(220, 220, 220); */
-  /* border: 10px solid #f2db75; */
 }
 
-a.lapak:hover {
-  /* background-color: #0f5132; */
+a.lapak:hover {  
   color: #fff;
 }
 
 /* --------Owl Carousel------- */
 .owlcrsl {
-  background-color: #198653;
-  /* border-radius: 5px; */
+  background-color: #198653;  
 }
 .container .row .owl-carousel .item {
   height: 330px;
@@ -353,33 +307,6 @@ a.lapak:hover {
 .owl-dot {
   color: #f2db75;
 }
-/* 
-.back-to-top {
-  background: #007bff;
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: 15px;
-  z-index: 996;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-.back-to-top i {
-  font-size: 28px;
-  color: #fff;
-  line-height: 0;
-}
-.back-to-top:hover {
-  background: #2990ff;
-  color: #fff;
-}
-.back-to-top.active {
-  opacity: 1;
-  visibility: visible;
-} */
 
 /* --------Footer------- */
 

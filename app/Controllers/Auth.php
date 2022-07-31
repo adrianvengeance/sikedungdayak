@@ -1337,15 +1337,15 @@ class Auth extends BaseController
     {
         if (!$this->validate([
             'title' => [
-                'rules' => 'required',
+                'rules' => 'permit_empty',
                 'errors' => [
-                    'required' => 'Judul untuk gambar diperlukan'
+                    'permit_empty' => 'Judul untuk gambar boleh kosong'
                 ]
             ],
             'subtitle' => [
-                'rules' => 'required',
+                'rules' => 'permit_empty',
                 'errors' => [
-                    'required' => 'Keterangan untuk gambar diperlukan'
+                    'permit_empty' => 'Keterangan untuk gambar boleh kosong'
                 ]
             ],
             'gambar' => [
@@ -1389,15 +1389,15 @@ class Auth extends BaseController
     {
         if (!$this->validate([
             'title' => [
-                'rules' => 'required',
+                'rules' => 'permit_empty',
                 'errors' => [
-                    'required' => 'Judul untuk gambar diperlukan'
+                    'permit_empty' => 'Judul untuk gambar boleh kosong'
                 ]
             ],
             'subtitle' => [
-                'rules' => 'required',
+                'rules' => 'permit_empty',
                 'errors' => [
-                    'required' => 'Sub judul untuk gambar diperlukan'
+                    'permit_empty' => 'Sub judul untuk gambar boleh kosong'
                 ]
             ],
             'gambar' => [
