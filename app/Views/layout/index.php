@@ -192,11 +192,11 @@
         </div>
         <div class="card mb-4">
           <div class="card-header">
-            <span class="me-2"><i class="bi bi-person-badge"></i></span>People
+            <span class="me-2"><i class="bi bi-person-badge"></i></span>Aparatur
           </div>
           <div class="card-body">
             <div class="owlcrsl">
-              <div class="justify-content-center owl-carousel">
+              <div class="justify-content-center owl-carousel text-light">
                 <?php if (!empty($smallimg)) : ?>
                   <?php foreach ($smallimg as $x => $value) : ?>
                     <div class="item">
@@ -205,8 +205,8 @@
                           <img src="<?= '/gambar/smallimg/' . $value['gambar']; ?>" loading="lazy" class="w-100" style="width: 100%;" alt="<?= $value['nama']; ?>">
                         </div>
                         <div class="card-body text-center">
-                          <h5 class="card-title mb-0 pb-0"><?= $value['nama']; ?></h5>
-                          <p class="card-text"><?= $value['jabatan']; ?></p>
+                          <h6 class="card-title mb-0 pb-0"><?= $value['nama']; ?></h6>
+                          <small class="card-text"><?= $value['jabatan']; ?></small>
                         </div>
                       </div>
                     </div>
@@ -347,6 +347,7 @@
       default: 5000,
       lazyLoad: true, //added
       center: true, //added
+      dots: false, //added
       loop: true,
       margin: 10,
       nav: false,
