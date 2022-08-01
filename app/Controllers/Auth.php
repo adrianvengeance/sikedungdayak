@@ -1071,7 +1071,7 @@ class Auth extends BaseController
                 ]
             ],
             'username'  => [
-                'rules'  => 'required|is_unique[users.username]',
+                'rules'  => 'required|is_unique[users.username,username,' . $this->user->username . ']',
                 'errors' => [
                     'required'  => 'Username diperlukan',
                     'is_unique' => 'Username sudah terdaftar'
@@ -1096,7 +1096,7 @@ class Auth extends BaseController
             'username' => $this->request->getVar('username'),
         ];
         $this->db->table('users')->where(['id_user' => $this->user->id_user])->update($iden);
-        session()->setFlashdata('berhasil', 'Identitas akun berhasil diubah.');
+        session()->setFlashdata('berhasil', 'Akun berhasil diubah.');
         return redirect()->to('/home/account');
     }
 
