@@ -35,6 +35,16 @@ class NewsModel extends Model
     {
         $builder = $this->db->table('news');
         $builder->select('*');
+        $builder->like('category', 'Berita');
+        $builder->orderBy('created_at', 'DESC');
+        return $builder->get()->getResult();
+    }
+
+    public function getArticlesGroup()
+    {
+        $builder = $this->db->table('news');
+        $builder->select('*');
+        $builder->notLike('category', 'Berita');
         $builder->orderBy('created_at', 'DESC');
         return $builder->get()->getResult();
     }
@@ -49,6 +59,6 @@ class NewsModel extends Model
     public function categorylist()
     {
         $builder = $this->query("SELECT DISTINCT category FROM news");
-        return $builder->getResult();
+        return $builder->getResultArray();
     }
 }

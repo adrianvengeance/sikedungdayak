@@ -86,32 +86,76 @@
   </div>
 </div>
 
+<div class="container mb-3" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+  <div class="row">
+    <div class="col-12">
+      <p class="text-success fs-3 border-top border-3">Artikel Terbaru..</p>
+    </div>
+    <?php if ($artikel) : ?>
+      <?php foreach ($artikel as $x => $row) : ?>
+        <div class="col-md-6 mb-2 px-1">
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-5 col-sm-4">
+                <div class="ratio ratio-1x1">
+                  <img src="/kontenberita/<?= $row->groupmonth . '/' . $row->author . '/' . $row->image; ?>" class="ora img-fluid rounded-start" alt="<?= $row->image; ?>" loading="lazy" style="width: 100%; object-fit: cover;">
+                </div>
+              </div>
+              <div class="col-7 col-sm-8">
+                <div class="card-body py-1 h-75">
+                  <div class="d-none d-md-block d-lg-none">
+                    <h5 class="card-title judul"><?= $row->title; ?></h5>
+                  </div>
+                  <div class="d-md-none d-lg-block">
+                    <h5 class="card-title mt-3 judul"><?= $row->title; ?></h5>
+                  </div>
+                </div>
+              </div>
+              <a href="/berita/<?= date('Y-m', strtotime($row->created_at)) . '/' . $row->slug; ?>" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach ?>
+    <?php endif ?>
+    <div class="col text-center">
+      <a href="/berita" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
+        <p class="pt-0 mb-1">Artikel lainnya..</p>
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="container mb-3" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
   <div class="row">
     <div class="col-12">
       <p class="text-success fs-3 border-top border-3">Berita Terbaru..</p>
     </div>
-
-    <?php foreach ($berita as $x => $row) : ?>
-
-      <div class="col-lg-6 mb-1">
-        <div class="card">
-          <div class="row g-0">
-            <div class="col-5 col-sm-4">
-              <div class="ratio ratio-1x1">
-                <img src="/kontenberita/<?= $row->groupmonth . '/' . $row->author . '/' . $row->image; ?>" class="ora img-fluid rounded-start" alt="<?= $row->image; ?>" loading="lazy" style="width: 100%; object-fit: cover;">
+    <?php if ($berita) : ?>
+      <?php foreach ($berita as $x => $row) : ?>
+        <div class="col-md-6 mb-1 px-1">
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-5 col-sm-4">
+                <div class="ratio ratio-1x1">
+                  <img src="/kontenberita/<?= $row->groupmonth . '/' . $row->author . '/' . $row->image; ?>" class="ora img-fluid rounded-start" alt="<?= $row->image; ?>" loading="lazy" style="width: 100%; object-fit: cover;">
+                </div>
               </div>
-            </div>
-            <div class="col-7 col-sm-8">
-              <div class="card-body py-1 h-75">
-                <h5 class="card-title mt-3 judul"><?= $row->title; ?></h5>
+              <div class="col-7 col-sm-8">
+                <div class="card-body py-1 h-75">
+                  <div class="d-none d-md-block d-lg-none">
+                    <h5 class="card-title judul"><?= $row->title; ?></h5>
+                  </div>
+                  <div class="d-md-none d-lg-block">
+                    <h5 class="card-title mt-3 judul"><?= $row->title; ?></h5>
+                  </div>
+                </div>
               </div>
+              <a href="/berita/<?= date('Y-m', strtotime($row->created_at)) . '/' . $row->slug; ?>" class="stretched-link"></a>
             </div>
-            <a href="/berita/<?= date('Y-m', strtotime($row->created_at)) . '/' . $row->slug; ?>" class="stretched-link"></a>
           </div>
         </div>
-      </div>
-    <?php endforeach ?>
+      <?php endforeach ?>
+    <?php endif ?>
     <div class="col text-center">
       <a href="/berita" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
         <p class="mb-1">Berita lainnya..</p>

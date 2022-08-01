@@ -35,7 +35,7 @@
             <p class="h6 text-muted" style="display: inline-block;">Bagikan</p>
 
             <!-- Sharingbutton -->
-            <a class="resp-sharing-button__link liveToastBtnMobile" role="button" id="liveToastBtn">
+            <a class="resp-sharing-button__link liveToastBtnMobile" role="button" id="liveToastBtn" onmousedown="showToast()">
               <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                   <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -84,7 +84,7 @@
             <p class="h6 text-muted" style="display: inline-block;">Bagikan</p>
 
             <!-- Sharingbutton -->
-            <a class="resp-sharing-button__link" role="button" id="liveToastBtn" onclick="showToast()">
+            <a class="resp-sharing-button__link" role="button" id="liveToastBtn" onmousedown="showToast()">
               <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                   <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -143,49 +143,6 @@
     </div>
   </div>
 
-
-  <!-- Comments section-->
-  <!-- <section class="mb-5">
-        <div class="card bg-light">
-            <div class="card-body"> -->
-  <!-- Comment form-->
-  <!-- <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form> -->
-  <!-- Comment with nested comments-->
-  <!-- <div class="d-flex mb-4"> -->
-  <!-- Parent comment-->
-  <!-- <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                    <div class="ms-3">
-                        <div class="fw-bold">Commenter Name</div>
-                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks. -->
-  <!-- Child comment 1-->
-  <!-- <div class="d-flex mt-4">
-                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                            <div class="ms-3">
-                                <div class="fw-bold">Commenter Name</div>
-                                And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                            </div>
-                        </div> -->
-  <!-- Child comment 2-->
-  <!-- <div class="d-flex mt-4">
-                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                            <div class="ms-3">
-                                <div class="fw-bold">Commenter Name</div>
-                                When you put money directly to a problem, it makes a good headline.
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-  <!-- Single comment-->
-  <!-- <div class="d-flex">
-                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                    <div class="ms-3">
-                        <div class="fw-bold">Commenter Name</div>
-                        When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 </div>
 
 <?= $this->endSection(); ?>

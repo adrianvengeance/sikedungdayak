@@ -55,12 +55,17 @@ class Home extends BaseController
         foreach ($berita as $x => $row) {
             $news[$row->created_at] = $row;
         }
+        $artikel = $this->newsmodel->getArticlesGroup();
+        foreach ($artikel as $n => $raw) {
+            $articles[$raw->created_at] = $raw;
+        }
 
         $data = [
             'title' => 'Padukuhan Kedung Dayak',
             'bigimg'   => $bigimg,
             'bigimgmin1' => (count($bigimg) - 1),
-            'berita'    => array_slice($news, 0, 4)
+            'berita'    => array_slice($news, 0, 4),
+            'artikel'   => array_slice($articles, 0, 4)
         ];
 
         return view('homepage', $data);

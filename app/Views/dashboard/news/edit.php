@@ -42,9 +42,14 @@
                         <label for="inputcategory" class="form-label">Kategori</label>
                         <input list="category" class="form-control <?= $validation->hasError('category') ? 'is-invalid' : ''; ?>" name="category" id="inputcategory" value="<?= (is_null(old('category')) ? $isi['category'] : old('category')) ?>">
                         <datalist id="category">
-                          <?php foreach ($kategori as $n) : ?>
-                            <option value="<?= $n->category; ?>"><?= $n->category; ?></option>
-                          <?php endforeach; ?>
+                          <?php if (empty($kategori)) : ?>
+                            <option value="Berita">Berita</option>
+                            <option value="Artikel">Artikel</option>
+                          <?php else : ?>
+                            <?php foreach ($kategori as $n) : ?>
+                              <option value="<?= $n['category']; ?>"><?= $n['category']; ?></option>
+                            <?php endforeach; ?>
+                          <?php endif ?>
                         </datalist>
                         <div class="invalid-feedback"><?= $validation->getError('category'); ?></div>
                       </div>
