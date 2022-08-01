@@ -8,7 +8,7 @@ class NewsModel extends Model
 {
     protected $table            = 'news';
     protected $primaryKey       = 'id_news';
-    protected $allowedFields    = ['title', 'slug', 'body', 'author', 'image', 'groupmonth'];
+    protected $allowedFields    = ['title', 'slug', 'body', 'author', 'category', 'image', 'groupmonth'];
     protected $useTimestamps    = true;
     protected $dateFormat       = 'datetime';
     protected $createdField     = 'created_at';
@@ -44,5 +44,11 @@ class NewsModel extends Model
         // $query = $this->query("SELECT * FROM news ORDER BY UNIX_TIMESTAMP(updated_at) DESC");
         $query = $this->query("SELECT *, DATE(updated_at) as mydate, TIME(updated_at) as mytime FROM news ORDER BY mydate DESC, mytime DESC");
         return $query->getResult();
+    }
+
+    public function categorylist()
+    {
+        $builder = $this->query("SELECT DISTINCT category FROM news");
+        return $builder->getResult();
     }
 }

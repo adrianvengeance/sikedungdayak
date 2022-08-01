@@ -11,7 +11,7 @@
               <div class="col-lg-11">
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                   <div class="card-header">
-                    <h3 class="text-center font-weight-light my-4">Edit Berita</h3>
+                    <h3 class="text-center font-weight-light my-4">Edit Artikel</h3>
                   </div>
                   <div class="card-body">
                     <?php if (session()->getFlashdata('gambar')) : ?>
@@ -26,17 +26,27 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>
                     <?php endif ?>
-                    <form action="/home/berita/editprocess/<?= $isi['id_news'] ?>" method="post">
+                    <form action="/home/artikel/editprocess/<?= $isi['id_news'] ?>" method="post">
                       <?= csrf_field(); ?>
                       <div class="mb-3">
-                        <label for="judulberita" class="form-label">Judul Berita</label>
+                        <label for="judulberita" class="form-label">Judul Artikel</label>
                         <input type="text" name="title" class="form-control <?= ($validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="judulberita" value="<?= is_null(old('title')) ? $isi['title'] : old('title'); ?>">
                         <div class="invalid-feedback"><?= $validation->getError('title'); ?></div>
                       </div>
                       <div class="mb-3">
-                        <label for="inputauthor" class="form-label">Penulis Berita</label>
+                        <label for="inputauthor" class="form-label">Penulis</label>
                         <input type="text" name="author" class="form-control <?= ($validation->hasError('author')) ? 'is-invalid' : ''; ?>" id="inputauthor" value="<?= (is_null(old('author')) ? $user->name : old('author')) ?>">
                         <div class="invalid-feedback"><?= $validation->getError('author'); ?></div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputcategory" class="form-label">Kategori</label>
+                        <input list="category" class="form-control <?= $validation->hasError('category') ? 'is-invalid' : ''; ?>" name="category" id="inputcategory" value="<?= (is_null(old('category')) ? $isi['category'] : old('category')) ?>">
+                        <datalist id="category">
+                          <?php foreach ($kategori as $n) : ?>
+                            <option value="<?= $n->category; ?>"><?= $n->category; ?></option>
+                          <?php endforeach; ?>
+                        </datalist>
+                        <div class="invalid-feedback"><?= $validation->getError('category'); ?></div>
                       </div>
                       <div class="mb-3">
                         <label for="inputbody" class="form-label">Isi</label>
@@ -47,21 +57,21 @@
                         <div class="overlay mx-auto">
                           <img src="/kontenberita/<?= $isi['groupmonth'] . '/' . $isi['author'] . '/' . $isi['image'] ?>" class="gambar img-thumbnail rounded mx-auto d-block" alt="<?= $isi['image']; ?>">
                           <div class="tengah">
-                            <a href="/home/berita/edit/image/<?= $isi['id_news'] ?>" class="btn btn-sm btn-secondary"><i class="fas fa-edit"></i> Ganti</a>
+                            <a href="/home/artikel/edit/image/<?= $isi['id_news'] ?>" class="btn btn-sm btn-secondary"><i class="fas fa-edit"></i> Ganti</a>
                           </div>
                         </div>
                       </div>
                       <div class="row mt-4">
-                        <button type="submit" name="submit" class="btn btn-primary text-center mx-auto col-sm-4"><i class="fas fa-edit"></i> Perbarui Berita</button>
+                        <button type="submit" name="submit" class="btn btn-primary text-center mx-auto col-sm-4"><i class="fas fa-edit"></i> Perbarui Artikel</button>
                       </div>
                       <div class="row mt-1">
-                        <a class="btn btn-danger text-center mx-auto col-sm-4" data-bs-toggle="modal" data-bs-target="#beritaDeleteModal"><i class="fas fa-trash-alt"></i> Hapus Berita</a>
+                        <a class="btn btn-danger text-center mx-auto col-sm-4" data-bs-toggle="modal" data-bs-target="#beritaDeleteModal"><i class="fas fa-trash-alt"></i> Hapus Artikel</a>
                       </div>
 
                     </form>
                   </div>
                   <div class="card-footer text-center py-3">
-                    <div class="small"><a href="/home/berita">Cancel</a></div>
+                    <div class="small"><a href="/home/artikel">Cancel</a></div>
                   </div>
                 </div>
               </div>
@@ -79,7 +89,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Are you sure want to delete this news?</h4>
+        <h4 class="modal-title">Are you sure want to delete this article?</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -91,7 +101,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <form action="/home/berita/hapus/<?= $isi['id_news']; ?>" method="post">
+        <form action="/home/artikel/hapus/<?= $isi['id_news']; ?>" method="post">
           <?= csrf_field(); ?>
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>

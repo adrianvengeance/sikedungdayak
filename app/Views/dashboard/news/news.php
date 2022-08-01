@@ -7,18 +7,18 @@
       <div class="card-header row mx-1">
         <div class="col-md-6">
           <button class="btn disabled ps-0">
-            <h5><i class="fas fa-newspaper"></i><span class="ms-2"> Berita</span></h5>
+            <h5><i class="fas fa-newspaper"></i><span class="ms-2"> Artikel</span></h5>
           </button>
         </div>
         <div class="col-md-6">
           <div class="d-md-none">
             <div class="text-center row px-3">
-              <a class="btn btn-primary text-white btn-sm" href="/home/berita/tambah"><i class="fas fa-plus"></i> Tambah Berita</a>
+              <a class="btn btn-primary text-white btn-sm" href="/home/artikel/tambah"><i class="fas fa-plus"></i> Tulis</a>
             </div>
           </div>
           <div class="d-none d-md-block">
             <div class="float-end mt-2">
-              <a class="btn btn-primary text-white btn-sm" href="/home/berita/tambah"><i class="fas fa-plus"></i> Tambah Berita</a>
+              <a class="btn btn-primary text-white btn-sm" href="/home/artikel/tambah"><i class="fas fa-plus"></i> Tulis</a>
             </div>
           </div>
         </div>
@@ -38,9 +38,10 @@
               <th>Gambar</th>
               <th>Judul</th>
               <th>Penulis</th>
+              <th>Kategori</th>
               <th>Grup</th>
               <th>Diperbarui</th>
-              <th>Dibuat</th>
+              <!-- <th>Dibuat</th> -->
             </tr>
           </thead>
           <tbody>
@@ -49,14 +50,15 @@
                 <tr>
                   <th class="align-middle text-center" scope="row"><?= $n + 1; ?></th>
                   <td class="align-middle">
-                    <a class="btn btn-sm" href="/home/berita/edit/<?= $value->id_news ?>" style="display: block; margin: auto;"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-sm" href="/home/artikel/edit/<?= $value->id_news ?>" style="display: block; margin: auto;"><i class="fas fa-edit"></i></a>
                   </td>
                   <td class="align-middle"><img src="<?= base_url('/kontenberita/' . $value->groupmonth . '/' . $value->author . '/' . $value->image); ?>" class="rounded mx-auto d-block" alt="<?= $value->image; ?>" style="max-width: 100px;"></td>
                   <td class="align-middle"><?= $value->title; ?></td>
                   <td class="align-middle"><?= $value->author; ?></td>
+                  <td class="align-middle"><?= $value->category; ?></td>
                   <td class="align-middle"><?= $value->groupmonth; ?></td>
                   <td class="align-middle"><?= $value->updated_at; ?></td>
-                  <td class="align-middle"><?= $value->created_at; ?></td>
+                  <!-- <td class="align-middle"><?= $value->created_at; ?></td> -->
                 </tr>
               <?php endforeach; ?>
             <?php endif; ?>

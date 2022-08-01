@@ -47,7 +47,7 @@ class News extends BaseController
       $all = $this->newsmodel->getNewsGroup();
 
       $data = [
-         'title'  => 'Berita | Padukuhan Kedung Dayak',
+         'title'  => 'Artikel | Padukuhan Kedung Dayak',
          'uri'    => $this->uri,
          'all'   => $all,
       ];
@@ -77,9 +77,9 @@ class News extends BaseController
             ];
             return view('/news/newspage', $data);
          }
-         throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Berita tidak ditemukan');
+         throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Artikel tidak ditemukan');
       }
-      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Berita tidak ditemukan');
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Artikel tidak ditemukan');
    }
 
    public function dashboard()
@@ -89,7 +89,7 @@ class News extends BaseController
       session()->remove('orangmeninggal');
 
       $data = [
-         'title' => 'Berita | Padukuhan Kedung Dayak',
+         'title' => 'Artikel | Padukuhan Kedung Dayak',
          'user'  => $this->user,
          'uri'   => $this->uri,
          'data'  => $this->newsmodel->getNewsBySlug(),
@@ -101,10 +101,11 @@ class News extends BaseController
    public function tambah()
    {
       $data = [
-         'title' => 'Tambah Berita | Padukuhan Kedung Dayak',
+         'title' => 'Tambah Artikel | Padukuhan Kedung Dayak',
          'user'  => $this->user,
          'uri'   => $this->uri,
-         'validation'    => Services::validation(),
+         'kategori'     => $this->newsmodel->categorylist(),
+         'validation'   => Services::validation(),
       ];
       return view('/dashboard/news/tambah', $data);
    }
@@ -113,23 +114,28 @@ class News extends BaseController
    {
       if (!$this->validate([
          'title'      => [
-            'rules'  => 'required|string|is_unique[news.title]',
+            'rules'  => 'required|is_unique[news.title]',
             'errors' => [
-               'required'  => 'Judul berita diperlukan',
-               'string'   => 'Judul berupa karakter yang bisa dibaca',
-               'is_unique' => 'Judul berita sudah ada, coba yang lain'
+               'required'  => 'Judul artikel diperlukan',
+               'is_unique' => 'Judul artikel sudah ada, coba yang lain'
             ]
          ],
          'body'  => [
             'rules'  => 'required',
             'errors' => [
-               'required'  => 'Isi berita diperlukan',
+               'required'  => 'Isi artikel diperlukan',
             ]
          ],
          'author' => [
             'rules' => 'required',
             'errors' => [
-               'required'  => 'Penulis berita diperlukan'
+               'required'  => 'Penulis artikel diperlukan'
+            ]
+         ],
+         'category' => [
+            'rules' => 'required',
+            'errors' => [
+               'required'  => 'Kategori artikel diperlukan'
             ]
          ],
          'image' => [
@@ -156,22 +162,24 @@ class News extends BaseController
          'slug'  => url_title($this->request->getPost('title'), '-', true),
          'body'  => $this->request->getPost('body'),
          'image' => $nama_gambar,
+         'category'   => $this->request->getVar('category'),
          'groupmonth' => $thnbln,
          'author' => $author,
       ];
       $this->newsmodel->save($berita);
-      session()->setFlashdata('berita', 'Berita berhasil ditambahkan.');
-      return redirect()->to('/home/berita');
+      session()->setFlashdata('berita', 'Artikel berhasil ditambahkan.');
+      return redirect()->to('/home/artikel');
    }
 
    public function edit($id)
    {
       $data = [
-         'title' => 'Edit Berita | Padukuhan Kedung Dayak',
+         'title' => 'Edit Artikel | Padukuhan Kedung Dayak',
          'user'  => $this->user,
          'uri'   => $this->uri,
          'isi'   => $this->newsmodel->getNewsById($id),
-         'validation'    => Services::validation(),
+         'kategori'     => $this->newsmodel->categorylist(),
+         'validation'   => Services::validation()
       ];
       return view('/dashboard/news/edit', $data);
    }
@@ -182,23 +190,28 @@ class News extends BaseController
       $value = $news['title'];
       if (!$this->validate([
          'title'      => [
-            'rules'  => "required|string|is_unique[news.title,news.title,$value]",
+            'rules'  => "required|is_unique[news.title,title,$value]",
             'errors' => [
-               'required'  => 'Judul berita diperlukan',
-               'string'   => 'Judul berupa karakter yang bisa dibaca',
-               'is_unique' => 'Judul berita sudah ada, coba yang lain'
+               'required'  => 'Judul artikel diperlukan',
+               'is_unique' => 'Judul artikel sudah ada, coba yang lain'
             ]
          ],
          'body'  => [
             'rules'  => 'required',
             'errors' => [
-               'required'  => 'Isi berita diperlukan',
+               'required'  => 'Isi artikel diperlukan',
             ]
          ],
          'author' => [
             'rules' => 'required',
             'errors' => [
-               'required'  => 'Penulis berita diperlukan'
+               'required'  => 'Penulis artikel diperlukan'
+            ]
+         ],
+         'category' => [
+            'rules' => 'required',
+            'errors' => [
+               'required'  => 'Kategori artikel diperlukan'
             ]
          ]
       ])) {
@@ -209,17 +222,18 @@ class News extends BaseController
          'slug'   => url_title($this->request->getVar('title'), '-', true),
          'body'   => $this->request->getVar('body'),
          'author' => $this->request->getVar('author'),
+         'category' => $this->request->getVar('category')
       ];
 
       $this->newsmodel->update($id, $news);                       //update dengan id yang sama ke table news
-      session()->setFlashdata('berita', 'Berita berhasil diubah');
-      return redirect()->to('/home/berita');
+      session()->setFlashdata('berita', 'Artikel berhasil diubah');
+      return redirect()->to('/home/artikel');
    }
 
    public function editimage($id)
    {
       $data = [
-         'title' => 'Ubah Gambar Berita | Padukuhan Kedung Dayak',
+         'title' => 'Ubah Gambar Artikel | Padukuhan Kedung Dayak',
          'user'  => $this->user,
          'uri'   => $this->uri,
          'isi'   => $this->newsmodel->getNewsById($id),
@@ -261,14 +275,14 @@ class News extends BaseController
       ];
 
       $this->newsmodel->update($id, $news);     //input data ke table news
-      session()->setFlashdata('gambar', 'Gambar berita berhasil diubah');
-      return redirect()->to('/home/berita/edit/' . $id);
+      session()->setFlashdata('gambar', 'Gambar artikel berhasil diubah');
+      return redirect()->to('/home/artikel/edit/' . $id);
    }
 
    public function hapus($id)
    {
       $this->newsmodel->delete($id);
-      session()->setFlashdata('berita', 'Berita berhasil dihapus.');
-      return redirect()->to('/home/berita');
+      session()->setFlashdata('berita', 'Artikel berhasil dihapus.');
+      return redirect()->to('/home/artikel');
    }
 }

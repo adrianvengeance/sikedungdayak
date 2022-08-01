@@ -72,8 +72,8 @@
               Papan Rumah
             </a>
             <div class="sb-sidenav-menu-heading">Content</div>
-            <a class="nav-link <?= ($uri->getSegment(2) == 'berita') ? 'active' : ''; ?>" href="/home/berita">
-              <div class="sb-nav-link-icon"><i class="fas fa-newspaper fa-fw"></i></div>Berita
+            <a class="nav-link <?= ($uri->getSegment(2) == 'artikel') ? 'active' : ''; ?>" href="/home/artikel">
+              <div class="sb-nav-link-icon"><i class="fas fa-newspaper fa-fw"></i></div>Artikel
             </a>
             <a class="nav-link <?= ($uri->getSegment(2) == 'lapak') ? 'active' : ''; ?>" href="/home/lapak">
               <div class="sb-nav-link-icon"><i class="fas fa-store fa-fw"></i></div>Lapak
@@ -100,38 +100,6 @@
             <a class="nav-link <?= ($uri->getSegment(2) == 'register' || $uri->getSegment(2) == 'accounts') ? 'active' : ''; ?>" href="/home/accounts">
               <div class="sb-nav-link-icon"><i class="fas fa-user fa-fw"></i></div>List Akun
             </a>
-
-            <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-              <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-              Pages
-              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-              <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                  Authentication
-                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="login.html">Login</a>
-                    <a class="nav-link" href="register.html">Register</a>
-                    <a class="nav-link" href="password.html">Forgot Password</a>
-                  </nav>
-                </div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                  Error
-                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                  <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="401.html">401 Page</a>
-                    <a class="nav-link" href="404.html">404 Page</a>
-                    <a class="nav-link" href="500.html">500 Page</a>
-                  </nav>
-                </div>
-              </nav>
-            </div> -->
           </div>
         </div>
         <div class="sb-sidenav-footer">
@@ -148,11 +116,6 @@
         <div class="container-fluid px-4">
           <div class="d-flex align-items-center justify-content-between small">
             <div class="text-muted">Copyright &copy; Kedung Dayak <?= date('Y'); ?></div>
-            <!-- <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div> -->
           </div>
         </div>
       </footer>
@@ -233,10 +196,7 @@
   <!-- <script src="https://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script> -->
   <!-- manually add jquery -->
   <script src="<?= base_url('/node_modules/jquery/dist/jquery.min.js'); ?>"></script>
-  <!-- datatables -->
-  <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script> -->
-  <!-- <script src="<?php // base_url('assets/js/datatables-demo.js') 
-                    ?>"></script> -->
+
 
   <script>
     tinymce.init({
@@ -246,8 +206,12 @@
       // toolbar_mode: 'floating',
       // tinycomments_mode: 'embedded',
       // tinycomments_author: 'Author name',
-      plugins: 'advlist autolink lists link image charmap preview anchor pagebreak code',
+      plugins: 'advlist autolink lists link image charmap preview code', //anchor pagebreak
       toolbar_mode: 'floating',
+      image_class_list: [{
+        title: 'class for good image sizes',
+        value: 'img-fluid rounded w-100'
+      }]
     });
   </script>
 

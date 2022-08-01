@@ -122,14 +122,14 @@ $routes->get('/home/lapak/edit/image/(:num)', 'Lapak::editimg/$1');
 $routes->post('/home/lapak/edit/imageprocess/(:num)', 'Lapak::editimgprocess/$1');
 $routes->delete('/home/lapak/hapus/(:num)', 'Lapak::hapus/$1');
 
-$routes->get('/home/berita', 'News::dashboard');
-$routes->get('/home/berita/tambah', 'News::tambah');
-$routes->post('/home/berita/tambahprocess', 'News::tambahprocess');
-$routes->get('/home/berita/edit/(:num)', 'News::edit/$1');
-$routes->post('/home/berita/editprocess/(:num)', 'News::update/$1');
-$routes->get('/home/berita/edit/image/(:num)', 'News::editimage/$1');
-$routes->post('/home/berita/edit/imageprocess/(:num)', 'News::updateimage/$1');
-$routes->delete('/home/berita/hapus/(:num)', 'News::hapus/$1');
+$routes->get('/home/artikel', 'News::dashboard');
+$routes->get('/home/artikel/tambah', 'News::tambah');
+$routes->post('/home/artikel/tambahprocess', 'News::tambahprocess');
+$routes->get('/home/artikel/edit/(:num)', 'News::edit/$1');
+$routes->post('/home/artikel/editprocess/(:num)', 'News::update/$1');
+$routes->get('/home/artikel/edit/image/(:num)', 'News::editimage/$1');
+$routes->post('/home/artikel/edit/imageprocess/(:num)', 'News::updateimage/$1');
+$routes->delete('/home/artikel/hapus/(:num)', 'News::hapus/$1');
 
 $routes->get('/home/widget', 'Auth::widget');
 $routes->get('/home/widget/pengunguman', 'Auth::pengunguman');
