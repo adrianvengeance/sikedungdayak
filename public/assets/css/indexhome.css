@@ -117,7 +117,6 @@ p.lmbmsykrt:hover {
   }
 }
 
-
 .bigBsCarousel {
   width: 100%;
 }
@@ -410,8 +409,7 @@ a.lapak:hover {
   border-color: #f2db75;
 }
 #footer .footer-top .footer-newsletter input[type="email"]:focus {
-  border-color: #f2db75;
-  /* box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); */
+  border-color: #f2db75;  
   outline: 1px solid #f2db75;
 }
 #footer .footer-top .footer-newsletter input[type="submit"] {
