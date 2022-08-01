@@ -20,10 +20,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Montserrat:wght@100;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- OwlCarousel2 -->
-    <link rel="stylesheet" href="<?= base_url('/node_modules/owl.carousel/dist/assets/owl.carousel.min.css') ?>" />
-    <link rel="stylesheet" href="<?= base_url('/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css') ?>">
-
     <!-- css -->
     <link rel="stylesheet" href="<?= base_url('/assets/css/indexhome.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/mycustom.css'); ?>">
@@ -165,8 +161,6 @@
 
     <!-- jQuery -->
     <script src="<?= base_url('/node_modules/jquery/dist/jquery.js') ?>"></script>
-    <!-- OwlCarousel -->
-    <script src="<?= base_url('/node_modules/owl.carousel/dist/owl.carousel.min.js') ?>"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- aos -->
@@ -175,36 +169,6 @@
         AOS.init({});
     </script>
 
-    <script>
-        $(document).ready(function() {
-            $('.owl-carousel').owlCarousel();
-        });
-
-        $('.owl-carousel').owlCarousel({
-            items: 4,
-            autoplay: true,
-            autoWidth: true,
-            default: 5000,
-            lazyLoad: true, //added
-            center: true, //added
-            loop: true,
-            margin: 10,
-            nav: true,
-            navText: ['<i class="bi bi-caret-left-fill" aria-hidden="true"></i>', '<i class="bi bi-caret-right-fill" aria-hidden="true"></i>'],
-            responsive: {
-                0: {
-                    items: 2,
-                    nav: false
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        })
-    </script>
     <script>
         //Get the button
         let mybutton = document.getElementById("btn-back-to-top");

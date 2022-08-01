@@ -133,14 +133,52 @@
 }
 
 
-/* #kembaliBerita:hover{
-  color: #fff !important;
-  text-decoration: none;
-} */
-/* .row>.col-md-6>.btn-outline-success:hover{
-  color: #fff !important;
-  text-decoration: none;
-} */
+/* --------Owl Carousel------- */
+
+.owl-carousel .item {
+  height: 330px;
+  width: auto;
+}
+
+.owl-carousel .item .card {
+  background-color: #198754;
+}
+.owl-carousel .item .card img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.owl-prev,
+.owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block !important;
+  border: 0px solid black;
+}
+.owl-prev {
+  left: -1px;
+}
+.owl-next {
+  right: 0px;
+}
+.owl-prev i,
+.owl-next i {
+  transform: scale(2, 5);
+  color: #f2db75;
+}
+.owl-prev i:hover,
+.owl-next i:hover {
+  color: #c4af52;
+}
+.owl-dot {
+  color: #f2db75;
+}
+
+
 #kembaliBerita:not([disabled]):not(.disabled).active,
 #kembaliBerita:not([disabled]):not(.disabled):active,
 #kembaliBerita:not([disabled]):not(.disabled).hover,

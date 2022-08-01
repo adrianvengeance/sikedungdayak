@@ -7,6 +7,7 @@ use App\Controllers\BaseController;
 use App\Models\DataModel;
 use App\Models\VideoytModel;
 use App\Models\VisitorModel;
+use App\Models\SmallimgModel;
 use App\Models\PengungumanModel;
 
 class Data extends BaseController
@@ -15,6 +16,7 @@ class Data extends BaseController
     {
         $this->datamodel = new DataModel();
         $this->videoytmodel = new VideoytModel();
+        $this->smallimgmodel = new SmallimgModel();
         $this->visitor_model = new VisitorModel();
         $this->pengungumanmodel = new PengungumanModel();
 
@@ -158,10 +160,11 @@ class Data extends BaseController
             'kkrt4'             => $kkrt4,
             'jjrt4'             => $jjrt4,
             'totalrt4'          => $totalrt4,
-            'vstoday'   => $this->visits_today,
-            'vslastwk'  => $this->visits_last_week,
-            'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstoday'           => $this->visits_today,
+            'vslastwk'          => $this->visits_last_week,
+            'vscurmon'          => $this->visits_curr_month,
+            'vstotal'           => $this->visits_statics_total,
+            'smallimg'          => $this->smallimgmodel->findAll()
         ];
         return view('/rumahdata/rumahdata', $data);
     }
@@ -180,7 +183,12 @@ class Data extends BaseController
             'announce'  => $this->announce,
             'videoyt'   => $this->video,
             'data'      => $infoo,
-            'nokk'      => $nokk
+            'nokk'      => $nokk,
+            'vstoday'   => $this->visits_today,
+            'vslastwk'  => $this->visits_last_week,
+            'vscurmon'  => $this->visits_curr_month,
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/info/inforumah', $data);
     }

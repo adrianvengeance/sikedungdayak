@@ -28,9 +28,10 @@
   <!-- chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- autocolors -->
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
-  <!-- google reCaptcha -->
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script> -->
+  <!-- OwlCarousel2 -->
+  <link rel="stylesheet" href="<?= base_url('/node_modules/owl.carousel/dist/assets/owl.carousel.min.css') ?>" />
+  <link rel="stylesheet" href="<?= base_url('/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css') ?>">
 
 </head>
 
@@ -190,6 +191,77 @@
           </div>
         </div>
         <div class="card mb-4">
+          <div class="card-header">
+            <span class="me-2"><i class="bi bi-person-badge"></i></span>People
+          </div>
+          <div class="card-body">
+            <div class="owlcrsl">
+              <div class="justify-content-center owl-carousel">
+                <?php if (!empty($smallimg)) : ?>
+                  <?php foreach ($smallimg as $x => $value) : ?>
+                    <div class="item">
+                      <div class="card h-100">
+                        <div class="card-img-top">
+                          <img src="<?= '/gambar/smallimg/' . $value['gambar']; ?>" loading="lazy" class="w-100" style="width: 100%;" alt="<?= $value['nama']; ?>">
+                        </div>
+                        <div class="card-body text-center">
+                          <h5 class="card-title mb-0 pb-0"><?= $value['nama']; ?></h5>
+                          <p class="card-text"><?= $value['jabatan']; ?></p>
+                        </div>
+                      </div>
+                    </div>
+                  <?php endforeach ?>
+                <?php else : ?>
+                  <div class="item">
+                    <div class="card h-100">
+                      <div class="card-img-top">
+                        <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+                      </div>
+                      <div class="card-body text-center">
+                        <h5 class="card-title mb-0 pb-0">Budi</h5>
+                        <p class="card-text">Carik</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card h-100">
+                      <div class="card-img-top">
+                        <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+                      </div>
+                      <div class="card-body text-center">
+                        <h5 class="card-title mb-0 pb-0">Budi</h5>
+                        <p class="card-text">Carik</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card h-100">
+                      <div class="card-img-top">
+                        <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+                      </div>
+                      <div class="card-body text-center">
+                        <h5 class="card-title mb-0 pb-0">Budi</h5>
+                        <p class="card-text">Carik</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card h-100">
+                      <div class="card-img-top">
+                        <img src="https://dummyimage.com/500x600/3b3b3b/ffffff.jpg" class="w-100" style="width: 100%;" alt="Boy">
+                      </div>
+                      <div class="card-body text-center">
+                        <h5 class="card-title mb-0 pb-0">Budi</h5>
+                        <p class="card-text">Carik</p>
+                      </div>
+                    </div>
+                  </div>
+                <?php endif ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4">
           <div class="card-header"><span class="me-2"><i class="bi bi-bar-chart-line"></i></span>Statistik Pengunjung</div>
           <div class="card-body">
             <dl class="row mb-0">
@@ -259,7 +331,40 @@
   <!-- simple datatable -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
 
+  <!-- OwlCarousel -->
+  <script src="<?= base_url('/node_modules/owl.carousel/dist/owl.carousel.min.js') ?>"></script>
 
+  <!-- owl carousel -->
+  <script>
+    $(document).ready(function() {
+      $('.owl-carousel').owlCarousel();
+    });
+
+    $('.owl-carousel').owlCarousel({
+      items: 4,
+      autoplay: true,
+      autoWidth: true,
+      default: 5000,
+      lazyLoad: true, //added
+      center: true, //added
+      loop: true,
+      margin: 10,
+      nav: false,
+      //navText: ['<i class="bi bi-caret-left-fill" aria-hidden="true"></i>', '<i class="bi bi-caret-right-fill" aria-hidden="true"></i>'],
+      responsive: {
+        0: {
+          items: 2,
+          nav: false
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 4
+        }
+      }
+    })
+  </script>
 
   <!-- datatable -->
   <script>
@@ -272,19 +377,6 @@
         "info": false
       });
     });
-
-    // window.addEventListener('DOMContentLoaded', event => {
-    //     // Simple-DataTables
-    //     // https://github.com/fiduswriter/Simple-DataTables/wiki
-
-    //     const datatablesimp = document.getElementById('inforumah');
-    //     if (datatablesimp) {
-    //         new simpleDatatables.DataTable(datatablesimp, {
-    //             searchable: false,
-    //             paging: false,
-    //         });
-    //     }
-    // });
   </script>
 
   <!-- Copy URL then Toast -->

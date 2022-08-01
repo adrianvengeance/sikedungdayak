@@ -8,6 +8,7 @@ use CodeIgniter\Files\File;
 use App\Models\NewsModel;
 use App\Models\VideoytModel;
 use App\Models\VisitorModel;
+use App\Models\SmallimgModel;
 use App\Models\PengungumanModel;
 use CodeIgniter\I18n\Time;
 
@@ -21,6 +22,7 @@ class News extends BaseController
       $this->uri = current_url(true);
       $this->newsmodel = new NewsModel();
       $this->videoytmodel = new VideoytModel();
+      $this->smallimgmodel = new SmallimgModel();
       $this->visitor_model = new VisitorModel();
       $this->pengungumanmodel = new PengungumanModel();
 
@@ -70,7 +72,8 @@ class News extends BaseController
                'vstoday'   => $this->visits_today,
                'vslastwk'  => $this->visits_last_week,
                'vscurmon'  => $this->visits_curr_month,
-               'vstotal'   => $this->visits_statics_total
+               'vstotal'   => $this->visits_statics_total,
+               'smallimg'  => $this->smallimgmodel->findAll()
             ];
             return view('/news/newspage', $data);
          }

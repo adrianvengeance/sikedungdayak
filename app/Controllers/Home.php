@@ -51,7 +51,6 @@ class Home extends BaseController
     public function index()
     {
         $bigimg = $this->bigimgmodel->findAll();
-        $smallimg = $this->smallimgmodel->findAll();
         $berita = $this->newsmodel->getNewsGroup();
         foreach ($berita as $x => $row) {
             $news[$row->created_at] = $row;
@@ -61,8 +60,6 @@ class Home extends BaseController
             'title' => 'Padukuhan Kedung Dayak',
             'bigimg'   => $bigimg,
             'bigimgmin1' => (count($bigimg) - 1),
-            'smallimg' => $smallimg,
-            'smallimgmin1' => (count($smallimg) - 1),
             'berita'    => array_slice($news, 0, 4)
         ];
 
@@ -86,7 +83,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/profile/profile_wilayah_padukuhan', $data);
     }
@@ -102,7 +100,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/profile/peta_wilayah_padukuhan', $data);
     }
@@ -124,7 +123,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/profile/sejarah_padukuhan', $data);
     }
@@ -140,7 +140,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/visi_misi', $data);
     }
@@ -156,7 +157,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/karang_taruna', $data);
     }
@@ -172,7 +174,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/kelompok_tani', $data);
     }
@@ -188,7 +191,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/kelompok_wanita_tani', $data);
     }
@@ -204,7 +208,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/linmas', $data);
     }
@@ -220,7 +225,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/pkk', $data);
     }
@@ -236,7 +242,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/pokgiat', $data);
     }
@@ -252,7 +259,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/pemerintahan/lembaga_masyarakat/posyandu', $data);
     }
@@ -268,7 +276,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/monografi/semester_i', $data);
     }
@@ -284,7 +293,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/monografi/semester_ii', $data);
     }
@@ -300,7 +310,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/potensi/kerajinan', $data);
     }
@@ -316,7 +327,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/potensi/kuliner', $data);
     }
@@ -332,7 +344,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/potensi/unggulan', $data);
     }
@@ -348,7 +361,8 @@ class Home extends BaseController
             'vstoday'   => $this->visits_today,
             'vslastwk'  => $this->visits_last_week,
             'vscurmon'  => $this->visits_curr_month,
-            'vstotal'   => $this->visits_statics_total
+            'vstotal'   => $this->visits_statics_total,
+            'smallimg'  => $this->smallimgmodel->findAll()
         ];
         return view('/produk_hukum/produk_hukum', $data);
     }
