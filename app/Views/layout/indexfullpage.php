@@ -87,7 +87,7 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" id="navbarDropdownproduk" href="/produkhukum">Produk Hukum</a></li>
-          <li class="nav-item"><a class="nav-link" id="navbarDropdownproduk" href="/berita">Berita</a></li>
+          <li class="nav-item"><a class="nav-link" id="navbarDropdownproduk" href="/artikel">Artikel</a></li>
           <li class="nav-item"><a class="nav-link" id="navbarDropdowndata" href="/rumahdata">Rumah Data</a></li>
 
           <hr class="d-xl-none d-xxl-block">
@@ -165,6 +165,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- shorten -->
   <script type="text/javascript" src="https://www.viralpatel.net/demo/jquery/jquery.shorten.1.0.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function() {
       $(".comment").shorten({

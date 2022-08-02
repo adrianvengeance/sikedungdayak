@@ -44,23 +44,25 @@ class News extends BaseController
    }
    public function index()
    {
-      $all = $this->newsmodel->getNewsGroup();
-
       $data = [
-         'title'  => 'Artikel | Padukuhan Kedung Dayak',
+         'title'  => 'Tulisan | Padukuhan Kedung Dayak',
          'uri'    => $this->uri,
-         'all'   => $all,
+         'berita'   => $this->newsmodel->getNewsGroup(),
+         'artikel'  => $this->newsmodel->getArticlesGroup()
       ];
 
       return view('/news/newshome', $data);
    }
 
-   public function show($date, $slug)
+   public function show($date, $category, $slug)
    {
       $berita = $this->newsmodel->getNewsBySlug($slug);
       if ($berita) {
+
          $month = date('Y-m', strtotime($berita['created_at']));
-         if ($month == $date) {
+         $kategoriurl = url_title($berita['category'], '-', true);
+
+         if ($month == $date && $kategoriurl == $category) {
             $data = [
                'title'  => $berita['title'] . ' | Padukuhan Kedung Dayak',
                'uri'    => $this->uri,
@@ -162,7 +164,7 @@ class News extends BaseController
          'slug'  => url_title($this->request->getPost('title'), '-', true),
          'body'  => $this->request->getPost('body'),
          'image' => $nama_gambar,
-         'category'   => $this->request->getVar('category'),
+         'category'   => is_null($this->request->getVar('category')) ? 'Berita' : $this->request->getVar('category'),
          'groupmonth' => $thnbln,
          'author' => $author,
       ];

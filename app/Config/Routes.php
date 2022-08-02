@@ -39,8 +39,8 @@ $routes->get('/', 'Home::index');
 $routes->post('/cari', 'Home::cari');
 
 $routes->get('/lapak', 'Lapak::index');
-$routes->get('/berita', 'News::index');
-$routes->get('/berita/(:segment)/(:segment)', 'News::show/$1/$2');
+$routes->get('/artikel', 'News::index');
+$routes->get('/artikel/(:segment)/(:segment)/(:segment)', 'News::show/$1/$2/$3');
 
 $routes->get('/profile/wilayah', 'Home::wilayah');
 $routes->get('/profile/peta', 'Home::peta');

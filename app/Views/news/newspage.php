@@ -9,6 +9,8 @@
     <header class="mb-2">
       <!-- Post title-->
       <h1 class="fw-bolder mb-1"><?= $berita['title']; ?></h1>
+      <!-- Post categories-->
+      <a class="badge bg-secondary text-decoration-none link-light" href="#!" style="pointer-events: none;"><?= $berita['category'] ?></a>
       <!-- Post meta content-->
       <?php $tanggal = (date("Y-m-j", strtotime($berita['updated_at']))); ?>
       <div class="text-muted fst-italic">
@@ -24,7 +26,9 @@
     <div class="row mx-0 my-2">
       <!-- kembali -->
       <div class="col-md-6 ps-0">
-        <a class="btn btn-outline-success mt-2" href="/berita" id="kembaliBerita"><i class="bi bi-arrow-left"></i> Berita lainnya</a>
+        <a class="btn btn-outline-success mt-2" href="/artikel" id="kembaliBerita" onmousedown="<?= $berita['category'] == 'Berita' ? 'beritadll()' : ''; ?>">
+          <i class="bi bi-arrow-left"></i> <?= $berita['category'] == 'Berita' ? 'Berita' : 'Artikel'; ?> lainnya
+        </a>
       </div>
 
       <!-- share button -->
@@ -46,7 +50,7 @@
               </div>
             </a>
             <!-- Sharingbutton Facebook -->
-            <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=<?= base_url('/berita/' . date('Y-m', strtotime($berita['created_at']))) . '/' . $berita['slug']; ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=<?= current_url() ?>" target="_blank" rel="noopener" aria-label="">
               <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -56,7 +60,7 @@
               </div>
             </a>
             <!-- Sharingbutton Twitter -->
-            <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<?= $berita['title'] ?>&amp;url=<?= base_url('/berita/' . date('Y-m', strtotime($berita['created_at']))) . '/' . $berita['slug']; ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<?= current_url() ?>" target="_blank" rel="noopener" aria-label="">
               <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -66,7 +70,7 @@
               </div>
             </a>
             <!-- Sharingbutton WhatsApp -->
-            <a class="resp-sharing-button__link" href="whatsapp://send?text=<?= $berita['title'] ?>%20<?= base_url('/berita/' . date('Y-m', strtotime($berita['created_at']))) . '/' . $berita['slug']; ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="resp-sharing-button__link" href="whatsapp://send?text=<?= current_url() ?>" target="_blank" rel="noopener" aria-label="">
               <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
                   <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
@@ -95,7 +99,7 @@
               </div>
             </a>
             <!-- Sharingbutton Facebook -->
-            <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=<?= base_url('/berita/' . date('Y-m', strtotime($berita['created_at']))) . '/' . $berita['slug']; ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=<?= current_url() ?>" target="_blank" rel="noopener" aria-label="">
               <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -105,7 +109,7 @@
               </div>
             </a>
             <!-- Sharingbutton Twitter -->
-            <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<?= $berita['title'] ?>&amp;url=<?= base_url('/berita/' . date('Y-m', strtotime($berita['created_at']))) . '/' . $berita['slug']; ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<?= current_url() ?>" target="_blank" rel="noopener" aria-label="">
               <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -115,7 +119,7 @@
               </div>
             </a>
             <!-- Sharingbutton WhatsApp -->
-            <a class="resp-sharing-button__link" href="whatsapp://send?text=<?= $berita['title'] ?>%20<?= base_url('/berita/' . date('Y-m', strtotime($berita['created_at']))) . '/' . $berita['slug']; ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="resp-sharing-button__link" href="whatsapp://send?text=<?= current_url() ?>" target="_blank" rel="noopener" aria-label="">
               <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
                 <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
                   <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
@@ -144,5 +148,12 @@
   </div>
 
 </div>
+
+<!-- for artikel berita -->
+<script type="text/javascript">
+  function beritadll() {
+    sessionStorage.setItem('beritalainnya', 'berita');
+  }
+</script>
 
 <?= $this->endSection(); ?>

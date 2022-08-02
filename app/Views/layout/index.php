@@ -100,7 +100,7 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" id="navbarDropdownproduk" href="/produkhukum">Produk Hukum</a></li>
-          <li class="nav-item"><a class="nav-link" id="navbarDropdownproduk" href="/berita">Berita</a></li>
+          <li class="nav-item"><a class="nav-link" id="navbarDropdownproduk" href="/artikel">Artikel</a></li>
           <li class="nav-item"><a class="nav-link" id="navbarDropdowndata" href="/rumahdata">Rumah Data</a></li>
 
           <hr class="d-xl-none d-xxl-block">
@@ -364,6 +364,13 @@
           items: 4
         }
       }
+    })
+  </script>
+
+  <!-- berita lainnya -->
+  <script type="text/javascript">
+    $(document).on('click', '#beritalainnya', function() {
+      sessionStorage.setItem('beritalainnya', 'berita');
     })
   </script>
 

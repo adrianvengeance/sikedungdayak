@@ -38,7 +38,6 @@
                         <datalist id="category">
                           <?php if (empty($kategori)) : ?>
                             <option value="Berita">Berita</option>
-                            <option value="Artikel">Artikel</option>
                           <?php else : ?>
                             <?php foreach ($kategori as $n) : ?>
                               <option value="<?= $n['category']; ?>"><?= $n['category']; ?></option>

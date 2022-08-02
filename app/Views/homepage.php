@@ -89,7 +89,7 @@
 <div class="container mb-3" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
   <div class="row">
     <div class="col-12">
-      <p class="text-success fs-3 border-top border-3">Artikel Terbaru..</p>
+      <p class="text-success fs-3 border-top border-3">Artikel Terbaru</p>
     </div>
     <?php if ($artikel) : ?>
       <?php foreach ($artikel as $x => $row) : ?>
@@ -111,14 +111,14 @@
                   </div>
                 </div>
               </div>
-              <a href="/berita/<?= date('Y-m', strtotime($row->created_at)) . '/' . $row->slug; ?>" class="stretched-link"></a>
+              <a href="/artikel/<?= date('Y-m', strtotime($row->created_at)) . '/' . url_title($row->category, '-', true) . '/' . $row->slug; ?>" class="stretched-link"></a>
             </div>
           </div>
         </div>
       <?php endforeach ?>
     <?php endif ?>
     <div class="col text-center">
-      <a href="/berita" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
+      <a href="/artikel" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
         <p class="pt-0 mb-1">Artikel lainnya..</p>
       </a>
     </div>
@@ -128,7 +128,7 @@
 <div class="container mb-3" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
   <div class="row">
     <div class="col-12">
-      <p class="text-success fs-3 border-top border-3">Berita Terbaru..</p>
+      <p class="text-success fs-3 border-top border-3">Berita Terbaru</p>
     </div>
     <?php if ($berita) : ?>
       <?php foreach ($berita as $x => $row) : ?>
@@ -150,14 +150,14 @@
                   </div>
                 </div>
               </div>
-              <a href="/berita/<?= date('Y-m', strtotime($row->created_at)) . '/' . $row->slug; ?>" class="stretched-link"></a>
+              <a href="/artikel/<?= date('Y-m', strtotime($row->created_at)) . '/' . url_title($row->category, '-', true) . '/' . $row->slug; ?>" class="stretched-link"></a>
             </div>
           </div>
         </div>
       <?php endforeach ?>
     <?php endif ?>
     <div class="col text-center">
-      <a href="/berita" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
+      <a id="beritalainnya" href="/artikel" data-link="berita" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
         <p class="mb-1">Berita lainnya..</p>
       </a>
     </div>
