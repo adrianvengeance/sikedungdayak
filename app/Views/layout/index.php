@@ -367,13 +367,6 @@
     })
   </script>
 
-  <!-- berita lainnya -->
-  <script type="text/javascript">
-    $(document).on('click', '#beritalainnya', function() {
-      sessionStorage.setItem('beritalainnya', 'berita');
-    })
-  </script>
-
   <!-- datatable -->
   <script>
     $(document).ready(function() {

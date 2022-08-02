@@ -157,12 +157,18 @@
       <?php endforeach ?>
     <?php endif ?>
     <div class="col text-center">
-      <a id="beritalainnya" href="/artikel" data-link="berita" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
+      <a href="/artikel" onmousedown="klikberita()" class="border-bottom border-2 btn text-dark" style="text-decoration: none;">
         <p class="mb-1">Berita lainnya..</p>
       </a>
     </div>
   </div>
 </div>
 
+<!-- for artikel berita -->
+<script type="text/javascript">
+  function klikberita() {
+    sessionStorage.setItem('beritalainnya', 'berita');
+  }
+</script>
 
 <?= $this->endSection(); ?>
