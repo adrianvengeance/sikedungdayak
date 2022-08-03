@@ -19,7 +19,7 @@
                             <a class="btn btn-sm btn-outline" href="/home"><i class="fas fa-arrow-left"></i></a>
                         </div>
                         <div class="col-6 d-flex align-items-end justify-content-end">
-                            <a class="btn btn-success text-white btn-sm" href="/home/penduduk/tambah"><i class="fas fa-plus"></i> Tambah</a>
+                            <a class="btn btn-success text-white btn-sm <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>" href="/home/penduduk/tambah"><i class="fas fa-plus"></i> Tambah</a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-4 d-flex align-items-end justify-content-end">
-                            <a class="btn btn-success text-white btn-sm" href="/home/penduduk/tambah"><i class="fas fa-plus"></i> Tambah</a>
+                            <a class="btn btn-success text-white btn-sm <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>" href="/home/penduduk/tambah"><i class="fas fa-plus"></i> Tambah</a>
                         </div>
                     </div>
                 </div>

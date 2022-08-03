@@ -161,6 +161,8 @@ class Auth extends BaseController
 
     public function penduduktambah($numkk = false)
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         $array = $this->datamodel->birthplace();
         $jobs = $this->datamodel->jobs();
 
@@ -355,6 +357,8 @@ class Auth extends BaseController
 
     public function pindahcari()
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         session()->remove('referred_from');
         session()->remove('orangpindah');
         session()->remove('orangmeninggal');
@@ -373,6 +377,8 @@ class Auth extends BaseController
 
     public function pindahcariprocess()
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         $key = $this->request->getVar('cari');
         if (!$key) {
             session()->setFlashdata('cari', 'Silakan masukan NIK atau Nama.');
@@ -391,6 +397,8 @@ class Auth extends BaseController
 
     public function pindahtambah()
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         $orang = session('orangpindah');
         if (!$orang) {
             return redirect()->to('/home/pindah/cari');
@@ -492,6 +500,8 @@ class Auth extends BaseController
 
     public function meninggalcari()
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         session()->remove('referred_from');
         session()->remove('orangpindah');
         session()->remove('orangmeninggal');
@@ -510,6 +520,8 @@ class Auth extends BaseController
 
     public function meninggalcariprocess()
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         $key = $this->request->getVar('cari');
 
         if (!$key) {
@@ -527,6 +539,8 @@ class Auth extends BaseController
 
     public function meninggaltambah()
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         $orangdie = session('orangmeninggal');
         if (!$orangdie) {
             return redirect()->to('/home/meninggal/cari');
@@ -617,6 +631,8 @@ class Auth extends BaseController
         return redirect()->to('/home/meninggal');
     }
 
+    // ---------------- 
+
     public function data()
     {
         session()->remove('referred_from');
@@ -703,6 +719,8 @@ class Auth extends BaseController
 
     public function editpenduduk($nik)
     {
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         $orang = ($this->datamodel->carinik($nik));
         $asal = session('inforumah');
 
@@ -924,6 +942,7 @@ class Auth extends BaseController
     }
 
     // ----------------Akun-------------------
+
     public function listakun()
     {
         session()->remove('referred_from');
@@ -947,9 +966,7 @@ class Auth extends BaseController
         session()->remove('orangmeninggal');
         session()->remove('inforumah');
 
-        if ($this->user->level == 'Admin') {
-            return redirect()->to('/home/accounts');
-        };
+        if ($this->user->level != 'Super Admin') return redirect()->back();
 
         $data = [
             'title' => 'Tambah Akun | Padukuhan Kedung Dayak',
@@ -1019,9 +1036,8 @@ class Auth extends BaseController
 
     public function deleteakun($id)
     {
-        if ($this->user->level != 'Super Admin') {
-            return redirect()->to('/home/accounts');
-        }
+        if ($this->user->level != 'Super Admin') return redirect()->back();
+
         if ($this->user->id_user == $id) {
             session()->setFlashdata('akunError', 'Tidak bisa menghapus akun yang sedang login');
             return redirect()->to('/home/accounts');
@@ -1154,6 +1170,7 @@ class Auth extends BaseController
     }
 
     // ------------Widget-------------
+
     public function widget()
     {
         session()->remove('referred_from');
@@ -1305,6 +1322,7 @@ class Auth extends BaseController
     }
 
     // ----------Pictures---------
+
     public function pictures()
     {
         session()->remove('referred_from');
@@ -1502,13 +1520,13 @@ class Auth extends BaseController
             'nama' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Judul untuk gambar diperlukan'
+                    'required' => 'Nama untuk gambar diperlukan'
                 ]
             ],
             'jabatan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Sub judul untuk gambar diperlukan'
+                    'required' => 'Jabatan untuk gambar diperlukan'
                 ]
             ],
             'gambar' => [

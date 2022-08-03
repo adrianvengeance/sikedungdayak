@@ -34,7 +34,7 @@
                       </div>
                       <div class=" mb-3">
                         <label for="inputEmail" class="form-label ">Name</label>
-                        <input class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>" id="inputName" type="text" name="name" value="<?= old('name') ?>" placeholder="Will be filled after username filled correctly" />
+                        <input class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>" id="inputName" type="text" name="name" value="<?= old('name') ?>" placeholder="Will be filled after username filled with NIK correctly" />
                         <div class="invalid-feedback"><?= $validation->getError('name'); ?></div>
                       </div>
                       <div class="row mb-3">

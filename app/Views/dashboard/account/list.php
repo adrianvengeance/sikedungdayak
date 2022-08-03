@@ -55,7 +55,7 @@
                   <td class="align-middle"><?= $value['username']; ?></td>
                   <td class="align-middle"><?= $value['level']; ?></td>
                   <td class="align-middle">
-                    <a class="btn btn-sm <?= ($user->level == 'Admin') ? 'disabled' : '' ?>" data-bs-toggle="modal" data-bs-target="#accountDeleteModal" data-id="<?= $value['id_user'] ?>" data-nama="<?= $value['name'] ?>" id="deleteAkun" aria-disabled="<?= ($user->level == 'Admin') ? 'true' : '' ?>" style="display: block; margin: auto;"><i class="fas fa-trash"></i></a>
+                    <a class="btn btn-sm <?= ($user->level == 'Admin') ? 'disabled' : ($user->id_user == $value['id_user'] ? 'disabled' : '') ?>" data-bs-toggle="modal" data-bs-target="#accountDeleteModal" data-id="<?= $value['id_user'] ?>" data-nama="<?= $value['name'] ?>" id="deleteAkun" aria-disabled="<?= ($user->level == 'Admin') ? 'true' : '' ?>" style="display: block; margin: auto;"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
               <?php endforeach; ?>

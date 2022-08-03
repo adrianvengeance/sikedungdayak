@@ -15,7 +15,7 @@
             <div class="float-end">
               <div class="d-md-none">
                 <div class=" pe-0 me-0">
-                  <a class="btn btn-success btn-sm text-nowrap me-0" href="/home/penduduk/tambah/<?= $nokk ?>"><i class="fas fa-plus"></i></a>
+                  <a class="btn btn-success btn-sm text-nowrap me-0 <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>" href="/home/penduduk/tambah/<?= $nokk ?>"><i class="fas fa-plus"></i></a>
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
             <div class="row">
               <?php if (isset($nokk)) : ?>
                 <div class="col-5 pe-0">
-                  <a class="btn btn-success float-end col-5 text-nowrap" href="/home/penduduk/tambah/<?= $nokk ?>" style="width: 150px;">Tambah Keluarga</a>
+                  <a class="btn btn-success float-end col-5 text-nowrap <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>" href="/home/penduduk/tambah/<?= $nokk ?>" style="width: 150px;">Tambah Keluarga</a>
                 </div>
               <?php endif; ?>
               <div class="<?= isset($nokk) ? 'col-7' : ''; ?> float-end">
@@ -175,17 +175,17 @@
               <form action="" id="edit" method="post">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="DELETE">
-                <button class="col-12 px-0 text-center btn btn-primary" type="submit">Edit</button>
+                <button class="col-12 px-0 text-center btn btn-primary" type="submit" <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>>Edit</button>
               </form>
               <form action="" id="move" method="post">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="DELETE">
-                <button class="col-12 px-0 text-center btn btn-info text-white my-2" type="submit">Pindah</button>
+                <button class="col-12 px-0 text-center btn btn-info text-white my-2" type="submit" <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>>Pindah</button>
               </form>
               <form action="" id="died" method="post">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="DELETE">
-                <button class="col-12 px-0 text-center btn btn-danger" type="submit">Meninggal</button>
+                <button class="col-12 px-0 text-center btn btn-danger" type="submit" <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?>>Meninggal</button>
               </form>
             </div>
           </div>
@@ -196,21 +196,21 @@
                 <form action="" id="edit" method="post">
                   <?= csrf_field(); ?>
                   <input type="hidden" name="_method" value="DELETE">
-                  <button class="btn btn-primary" type="submit" style="width:150px;">Edit</button>
+                  <button class="btn btn-primary" type="submit" <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?> style="width:150px;">Edit</button>
                 </form>
               </div>
               <div class="col-sm-4 px-0 text-center">
                 <form action="" id="move" method="post">
                   <?= csrf_field(); ?>
                   <input type="hidden" name="_method" value="DELETE">
-                  <button class="btn btn-info text-white" type="submit" style="width:150px;">Pindah</button>
+                  <button class="btn btn-info text-white" type="submit" <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?> style="width:150px;">Pindah</button>
                 </form>
               </div>
               <div class="col-sm-4 px-0 text-center">
                 <form action="" id="died" method="post">
                   <?= csrf_field(); ?>
                   <input type="hidden" name="_method" value="DELETE">
-                  <button class="btn btn-danger" type="submit" style="width:150px;">Meninggal</button>
+                  <button class="btn btn-danger" type="submit" <?= ($user->level != 'Super Admin') ? 'disabled' : '' ?> style="width:150px;">Meninggal</button>
                 </form>
               </div>
             </div>
