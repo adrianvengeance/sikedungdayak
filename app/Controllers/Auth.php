@@ -719,7 +719,10 @@ class Auth extends BaseController
 
     public function editpenduduk($nik)
     {
-        if ($this->user->level != 'Super Admin') return redirect()->back();
+        if ($this->user->level != 'Super Admin') {
+            session()->setFlashdata('adminbiasa', 'Akun harus level super admin.');
+            return redirect()->back();
+        }
 
         $orang = ($this->datamodel->carinik($nik));
         $asal = session('inforumah');

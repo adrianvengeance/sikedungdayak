@@ -135,7 +135,7 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          Select "Logout" below if you are ready to end your current session.
+          Pilih "Logout" di bawah apabila yakin mau keluar.
         </div>
 
         <!-- Modal footer -->
