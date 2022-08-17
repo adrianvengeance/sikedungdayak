@@ -2,9 +2,7 @@
 
 This program is running here [www.kedungdayak.com](https://www.kedungdayak.com)</br>
 
-Web aplikasi yang saya buat sendiri ketika KKN di Padukuhan Kedung Dayak, Jatimulyo, Dlingo, Bantul, Yogyakarta.
-
-Aplikasi ini menampung dan mengolah data penduduk serta menjadi pusat informasi Kedung Dayak.
+Web aplikasi yang saya buat sendiri ketika KKN di Padukuhan Kedung Dayak, Jatimulyo, Dlingo, Bantul, Yogyakarta. Aplikasi ini menampung dan mengolah data penduduk serta menjadi pusat informasi Kedung Dayak.
 
 ## About
 
