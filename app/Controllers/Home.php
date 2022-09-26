@@ -52,20 +52,24 @@ class Home extends BaseController
     {
         $bigimg = $this->bigimgmodel->findAll();
         $berita = $this->newsmodel->getNewsGroup();
+        $beritanih = 0;
         foreach ($berita as $x => $row) {
             $news[$row->created_at] = $row;
+            $beritanih = array_slice($news, 0, 4);
         }
         $artikel = $this->newsmodel->getArticlesGroup();
+        $artikelnih = 0;
         foreach ($artikel as $n => $raw) {
             $articles[$raw->created_at] = $raw;
-        }
+            $artikelnih = array_slice($articles, 0, 4);
+        }        
 
         $data = [
             'title' => 'Padukuhan Kedung Dayak',
             'bigimg'   => $bigimg,
             'bigimgmin1' => (count($bigimg) - 1),
-            'berita'    => array_slice($news, 0, 4),
-            'artikel'   => array_slice($articles, 0, 4)
+            'berita'    => $beritanih == 0 ? false : $beritanih,
+            'artikel'   => $artikelnih == 0 ? false : $artikelnih
         ];
 
         return view('homepage', $data);
