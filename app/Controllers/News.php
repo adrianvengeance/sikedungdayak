@@ -44,11 +44,13 @@ class News extends BaseController
    }
    public function index()
    {
+      $berita = $this->newsmodel->getNewsGroup();
+      $artikel = $this->newsmodel->getArticlesGroup();
       $data = [
          'title'  => 'Tulisan | Padukuhan Kedung Dayak',
          'uri'    => $this->uri,
-         'berita'   => $this->newsmodel->getNewsGroup(),
-         'artikel'  => $this->newsmodel->getArticlesGroup()
+         'berita'   => $berita == 0 ? false : $berita,
+         'artikel'  => $artikel == 0 ? false : $artikel
       ];
 
       return view('/news/newshome', $data);
