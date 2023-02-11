@@ -378,6 +378,14 @@
         "info": false
       });
     });
+
+    // $(document).ready(function() {
+    //   $('#bayitable').DataTable({
+    //     'searching': false,
+    //     'paging' : false,
+    //     'info' : false
+    //   });
+    // });
   </script>
 
   <!-- Copy URL then Toast -->

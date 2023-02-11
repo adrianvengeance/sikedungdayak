@@ -249,4 +249,49 @@ class DataModel extends Model
     {
         return $this->where('rt', $rt)->findAll();
     }
+
+    public function badutamale() {
+        $builder = $this->table('data');
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->where("umur<=2");
+        $builder->where("jeniskel", 'LAKI-LAKI');
+        return count($builder->get()->getResultArray());
+    }
+    public function badutafemale() {
+        $builder = $this->table('data');
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->where("umur<=2");
+        $builder->where("jeniskel", 'PEREMPUAN');
+        return count($builder->get()->getResultArray());
+    }
+
+    public function batitamale() {
+        $builder = $this->table('data');
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->where("umur<=3");
+        $builder->where("jeniskel", 'LAKI-LAKI');
+        return count($builder->get()->getResultArray());
+    }
+    public function batitafemale() {
+        $builder = $this->table('data');
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->where("umur<=3");
+        $builder->where("jeniskel", 'PEREMPUAN');
+        return count($builder->get()->getResultArray());
+    }
+    
+    public function balitamale() {
+        $builder = $this->table('data');
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->where("umur<=5");
+        $builder->where("jeniskel", 'LAKI-LAKI');
+        return count($builder->get()->getResultArray());
+    }
+    public function balitafemale() {
+        $builder = $this->table('data');
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->where("umur<=5");
+        $builder->where("jeniskel", 'PEREMPUAN');
+        return count($builder->get()->getResultArray());
+    }
 }
