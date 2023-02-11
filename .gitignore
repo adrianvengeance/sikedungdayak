@@ -125,3 +125,7 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+# I add
+/public/gambar
+/public/kontenberita
+/public/produklapak
