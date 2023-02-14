@@ -138,6 +138,13 @@ class Auth extends BaseController
             'uri'           => $this->uri,
             'user'          => $this->user,
             'title'         => 'Home | Padukuhan Kedung Dayak',
+            'smallimg'      => $this->smallimgmodel->findAll(),
+            'badutam'       => $this->datamodel->badutamale(),
+            'badutaf'       => $this->datamodel->badutafemale(),
+            'batitam'       => $this->datamodel->batitamale(),
+            'batitaf'       => $this->datamodel->batitafemale(),
+            'balitam'       => $this->datamodel->balitamale(),
+            'balitaf'       => $this->datamodel->balitafemale()
         ];
         return view('/dashboard/home', $data);
     }
@@ -640,14 +647,11 @@ class Auth extends BaseController
         session()->remove('orangmeninggal');
         session()->remove('inforumah');
 
-        $umurs = $this->datamodel->umursemua([]);
-
         $data  = [
             'title' => 'Data Warga | Padukuhan Kedung Dayak',
             'user'  => $this->user,
             'uri'   => $this->uri,
-            'data'  => $this->datamodel->semuanya(),
-            'umurs' => $umurs,
+            'data'  => $this->datamodel->semuanya()
         ];
         return view('/dashboard/alldata', $data);
     }

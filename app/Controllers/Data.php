@@ -163,14 +163,7 @@ class Data extends BaseController
             'vstoday'           => $this->visits_today,
             'vslastwk'          => $this->visits_last_week,
             'vscurmon'          => $this->visits_curr_month,
-            'vstotal'           => $this->visits_statics_total,
-            'smallimg'          => $this->smallimgmodel->findAll(),
-            'badutam'           => $this->datamodel->badutamale(),
-            'badutaf'           => $this->datamodel->badutafemale(),
-            'batitam'           => $this->datamodel->batitamale(),
-            'batitaf'           => $this->datamodel->batitafemale(),
-            'balitam'           => $this->datamodel->balitamale(),
-            'balitaf'           => $this->datamodel->balitafemale()
+            'vstotal'           => $this->visits_statics_total
         ];
         return view('/rumahdata/rumahdata', $data);
     }

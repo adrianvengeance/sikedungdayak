@@ -80,42 +80,6 @@
           <canvas id="umurchart" class="px-2 py-1" height="370px"></canvas>
         </div>
         <div class="my-2 mt-3">
-          <table class="table table-striped table-bordered" id="bayitable">
-            <thead class="text-center">
-              <tr>
-                <th>No</th>
-                <th>Kategori</th>
-                <th>Laki-laki</th>
-                <th>Perempuan</th>
-                <th>Jumlah</th>
-              </tr>
-            </thead>
-            <tbody class="text-center">
-              <tr class="table-warning">
-                <td>1</td>
-                <td>Bayi Dua Tahun</td>
-                <td><?= $badutam ?></td>
-                <td><?= $badutaf ?></td>
-                <td><?= $badutam+$badutaf ?></td>
-              </tr>
-              <tr class="table-success">
-                <td>2</td>
-                <td>Bayi Tiga Tahun</td>
-                <td><?= $batitam ?></td>
-                <td><?= $batitaf ?></td>
-                <td><?= $batitam+$batitaf ?></td>
-              </tr>
-              <tr class="table-danger">
-                <td>3</td>
-                <td>Bayi Lima Tahun</td>
-                <td><?= $balitam ?></td>
-                <td><?= $balitaf ?></td>
-                <td><?= $balitam+$balitaf ?></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="my-2 mt-3">
           <canvas id="pendidikanchart" class="px-2 py-1" height="370px"></canvas>
         </div>
         <div class="my-2 mt-3">

@@ -12,7 +12,7 @@ class DataModel extends Model
     protected $useTimestamps    = false;
     protected $useSoftDeletes   = false;
     protected $allowedFields    = [
-        'numkk', 'nik', 'namaagt', 'tmplahir', 'tgllahir', 'umur', 'agama', 'goldar', 'jeniskel', 'keluarga', 'statusdiri', 'statuswarga', 'pendidikan', 'pekerjaan', 'ayah', 'ibu', 'hubungkel', 'alamatasal', 'alamatdesa', 'rt', 'rw', 'kelurahan', 'kecamatan', 'kota', 'kodepos', 'provinsi', 'pbi', 'pkh', 'bpnt', 'bst'
+        'numkk', 'nik', 'namaagt', 'tmplahir', 'tgllahir', 'umur', 'agama', 'goldar', 'jeniskel', 'keluarga', 'statusdiri', 'statuswarga', 'pendidikan', 'pekerjaan', 'ayah', 'ibu', 'hubungkel', 'alamatasal', 'alamatdesa', 'rt', 'rw', 'kelurahan', 'kecamatan', 'kota', 'kodepos', 'provinsi', 'pbi', 'pkh', 'bpnt', 'bst', 'age'
     ];
 
     public function semuanya()
@@ -23,70 +23,65 @@ class DataModel extends Model
 
     public function umursemua()
     {
-        $query = $this->db->query("SELECT tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS umur FROM data;");
+        $query = $this->db->query("SELECT tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS age FROM data;");
         return $query->getResultArray();
     }
 
-    public function umurjeniskel($lorp)
-    {
-        $builder = $this->db->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("jeniskel", $lorp);
-        $query = $builder->get()->getResultArray();
-        return $query;
-    }
-    // public function umurjeniskel_05($lorp)
+    // public function umurjeniskel($lorp)
+    // {
+    //     $builder = $this->db->table('data');
+    //     $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+    //     $builder->where("jeniskel", $lorp);
+    //     $query = $builder->get()->getResultArray();
+    //     return $query;
+    // }
+
     public function umurjeniskel_03($lorp)
     {
         $builder = $this->db->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", $lorp);
-        // $builder->where("umur>0 AND umur<6");
-        $builder->where("umur>0 AND umur<4");
+        $builder->having("age>0 AND age<4");
         $query = $builder->get()->getResultArray();
         return count($query);
     }
-    // public function umurjeniskel_0612($lorp)
+
     public function umurjeniskel_46($lorp)
     {
         $builder = $this->db->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", $lorp);
-        // $builder->where("umur>6 AND umur<13");
-        $builder->where("umur>3 AND umur<7");
+        $builder->having("age>3 AND age<7");
         $query = $builder->get()->getResultArray();
         return count($query);
     }
-    // public function umurjeniskel_1317($lorp)
+
     public function umurjeniskel_718($lorp)
     {
         $builder = $this->db->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", $lorp);
-        // $builder->where("umur>12 AND umur<18");
-        $builder->where("umur>6 AND umur<19");
+        $builder->having("age>6 AND age<19");
         $query = $builder->get()->getResultArray();
         return count($query);
     }
-    // public function umurjeniskel_1825($lorp)
+
     public function umurjeniskel_1956($lorp)
     {
         $builder = $this->db->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", $lorp);
-        // $builder->where("umur>17 AND umur<26");
-        $builder->where("umur>18 AND umur<57");
+        $builder->having("age>18 AND age<57");
         $query = $builder->get()->getResultArray();
         return count($query);
     }
-    // public function umurjeniskel_64($lorp)
+
     public function umurjeniskel_57($lorp)
     {
         $builder = $this->db->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
+        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", $lorp);
-        // $builder->where("umur>63");
-        $builder->where("umur>56");
+        $builder->having("age>56");
         $query = $builder->get()->getResultArray();
         return count($query);
     }
@@ -103,14 +98,14 @@ class DataModel extends Model
     public function pendidikanbyusia($pnddkn)
     {
         // $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS umur FROM data WHERE pendidikan LIKE '%$pnddkn%' AND umur BETWEEN 17 AND 63;");
-        $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS umur FROM data WHERE pendidikan LIKE '%$pnddkn%';");
+        $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS age FROM data WHERE pendidikan LIKE '%$pnddkn%';");
         return $query->getResultArray();
     }
-    public function pendidikanall($pnddkn)
-    {
-        $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS umur FROM data WHERE pendidikan LIKE '%$pnddkn%';");
-        return $query->getResultArray();
-    }
+    // public function pendidikanall($pnddkn)
+    // {
+    //     $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS age FROM data WHERE pendidikan LIKE '%$pnddkn%';");
+    //     return $query->getResultArray();
+    // }
 
     public function inforumah($nokk)
     {
@@ -166,14 +161,6 @@ class DataModel extends Model
     {
         return $this->select("nik, namaagt")->orderBy('nik', 'ASC')->get()->getResultArray();
     }
-
-    // public function statuspindah()                           //cari table data where statuswarga = pindah, just used 1 time
-    // {
-    //     $builder = $this->db->table('data');
-    //     $builder->select('nik, numkk, namaagt, jeniskel, tgllahir, agama, goldar, keluarga, statusdiri, statuswarga, pendidikan, pekerjaan, ayah, ibu, hubungkel');
-    //     $builder->where('statuswarga', 'PINDAH');
-    //     return $builder->get()->getResultArray();
-    // }
 
     public function carinumkk($cari)
     {
@@ -250,48 +237,79 @@ class DataModel extends Model
         return $this->where('rt', $rt)->findAll();
     }
 
-    public function badutamale() {
+    public function badutamale()
+    {
         $builder = $this->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("umur<=2");
+        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'LAKI-LAKI');
+        $builder->having("age <=", 2);
         return count($builder->get()->getResultArray());
     }
-    public function badutafemale() {
+    public function badutafemale()
+    {
         $builder = $this->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("umur<=2");
+        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'PEREMPUAN');
+        $builder->having("age <=", 2);
         return count($builder->get()->getResultArray());
     }
 
-    public function batitamale() {
+    public function batitamale()
+    {
         $builder = $this->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("umur<=3");
+        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'LAKI-LAKI');
+        $builder->having("age <=", 3);
         return count($builder->get()->getResultArray());
     }
-    public function batitafemale() {
+    public function batitafemale()
+    {
         $builder = $this->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("umur<=3");
+        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'PEREMPUAN');
+        $builder->having("age <=", 3);
         return count($builder->get()->getResultArray());
     }
-    
-    public function balitamale() {
+
+    public function balitamale()
+    {
         $builder = $this->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("umur<=5");
+        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'LAKI-LAKI');
+        $builder->having("age <=", 5);
         return count($builder->get()->getResultArray());
     }
-    public function balitafemale() {
+    public function balitafemale()
+    {
         $builder = $this->table('data');
-        $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-        $builder->where("umur<=5");
+        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'PEREMPUAN');
+        $builder->having("age <=", 5);
         return count($builder->get()->getResultArray());
+    }
+
+    public function pasubur()
+    {
+        $this->select("t1.numkk, t1.namaagt AS wanita, t1.tgllahir AS tgllahirwanita, TIMESTAMPDIFF(YEAR, t1.tgllahir, CURDATE()) AS agewanita, t2.namaagt AS pria, t2.tgllahir AS tgllahirpria, TIMESTAMPDIFF(YEAR, t2.tgllahir, CURDATE()) AS agepria");
+        $this->from("data t1");
+        $this->join("data t2", "t1.numkk = t2.numkk", "inner");
+        $this->where("t1.jeniskel", "PEREMPUAN");
+        $this->where("t1.statusdiri", "SUDAH KAWIN");
+        $this->having("agewanita <", 50);
+        $this->where("t2.jeniskel", "LAKI-LAKI");
+        $this->where("t2.statusdiri", "SUDAH KAWIN");
+        $this->where("t2.hubungkel", "KEPALA KELUARGA");
+        $this->distinct();
+        $query = $this->get();
+        return $query->getResultArray();
+    }
+
+    public function wasubur()
+    {
+        $builder = $this->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
+        $builder->where("jeniskel", "PEREMPUAN");
+        $builder->where("statusdiri !=", "SUDAH KAWIN");
+        $builder->having("age>11 AND age<51");
+        return $builder->get()->getResultArray();
     }
 }

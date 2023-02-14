@@ -99,9 +99,9 @@
   min-height: 280px;
 }
 
-#chartrumahdata > .my-2:nth-child(2) {
+/* #chartrumahdata > .my-2:nth-child(2) {
   min-height: initial;
-}
+} */
 
 .kotakChart {
   width: 100%;
