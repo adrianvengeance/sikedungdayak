@@ -243,7 +243,7 @@ class DataModel extends Model
         $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'LAKI-LAKI');
         $builder->having("age <=", 2);
-        return count($builder->get()->getResultArray());
+        return ($builder->get()->getResultArray());
     }
     public function badutafemale()
     {
@@ -251,7 +251,7 @@ class DataModel extends Model
         $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'PEREMPUAN');
         $builder->having("age <=", 2);
-        return count($builder->get()->getResultArray());
+        return ($builder->get()->getResultArray());
     }
 
     public function batitamale()
@@ -260,7 +260,7 @@ class DataModel extends Model
         $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'LAKI-LAKI');
         $builder->having("age <=", 3);
-        return count($builder->get()->getResultArray());
+        return ($builder->get()->getResultArray());
     }
     public function batitafemale()
     {
@@ -268,7 +268,7 @@ class DataModel extends Model
         $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'PEREMPUAN');
         $builder->having("age <=", 3);
-        return count($builder->get()->getResultArray());
+        return ($builder->get()->getResultArray());
     }
 
     public function balitamale()
@@ -277,7 +277,7 @@ class DataModel extends Model
         $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'LAKI-LAKI');
         $builder->having("age <=", 5);
-        return count($builder->get()->getResultArray());
+        return ($builder->get()->getResultArray());
     }
     public function balitafemale()
     {
@@ -285,7 +285,14 @@ class DataModel extends Model
         $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
         $builder->where("jeniskel", 'PEREMPUAN');
         $builder->having("age <=", 5);
-        return count($builder->get()->getResultArray());
+        return ($builder->get()->getResultArray());
+    }
+    public function balita()
+    {
+        $builder = $this->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
+        $builder->having('age <=', 5);
+        $builder->orderBy('age ASC, jeniskel ASC, namaagt ASC');
+        return $builder->get()->getResultArray();
     }
 
     public function pasubur()
@@ -299,6 +306,7 @@ class DataModel extends Model
         $this->where("t2.jeniskel", "LAKI-LAKI");
         $this->where("t2.statusdiri", "SUDAH KAWIN");
         $this->where("t2.hubungkel", "KEPALA KELUARGA");
+        $this->orderBy('agewanita ASC');
         $this->distinct();
         $query = $this->get();
         return $query->getResultArray();
@@ -310,6 +318,7 @@ class DataModel extends Model
         $builder->where("jeniskel", "PEREMPUAN");
         $builder->where("statusdiri !=", "SUDAH KAWIN");
         $builder->having("age>11 AND age<51");
+        $builder->orderBy('age ASC');
         return $builder->get()->getResultArray();
     }
 }

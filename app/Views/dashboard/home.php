@@ -89,7 +89,7 @@
             Jumlah Bayi sesuai Usia
           </div>
           <div class="card-body">
-            <table class="table table-striped table-bordered" id="bayitable">
+            <table class="table table-striped table-bordered table-sm">
               <thead class="text-center">
                 <tr>
                   <th>Kategori</th>
@@ -98,24 +98,52 @@
                   <th>Jumlah</th>
                 </tr>
               </thead>
-              <tbody class="text-center">
+              <tbody class="text-center align-middle">
                 <tr class="table-warning">
-                  <td>BADUTA (0-2)</td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/jumlah-bayi">BADUTA (0-2)</a></td>
                   <td><?= $badutam ?></td>
                   <td><?= $badutaf ?></td>
                   <td><?= $badutam + $badutaf ?></td>
                 </tr>
                 <tr class="table-success">
-                  <td>BATITA (0-3)</td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/jumlah-bayi">BATITA (0-3)</a></td>
                   <td><?= $batitam ?></td>
                   <td><?= $batitaf ?></td>
                   <td><?= $batitam + $batitaf ?></td>
                 </tr>
-                <tr class="table-primary">
-                  <td>BALITA (0-5)</td>
+                <tr class="table-info">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/jumlah-bayi">BALITA (0-5)</a></td>
                   <td><?= $balitam ?></td>
                   <td><?= $balitaf ?></td>
                   <td><?= $balitam + $balitaf ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="card boder border-1 border-secondary mb-4">
+          <div class="card-header border-1 border-secondary">
+            <i class="fas fa-female me-1"></i>
+            Jumlah Wanita Usia Subur
+          </div>
+          <div class="card-body">
+            <table class="table table-striped table-bordered">
+              <thead class="text-center">
+                <tr>
+                  <th>Kategori</th>
+                  <th>Jumlah</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-primary">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/pasangan-subur">Pasangan Usia Subur (Wanita &lt;50 tahun)</a></td>
+                  <td class="text-center"><?= $pasubur ?></td>
+                </tr>
+                <tr class="table-danger">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/wanita-subur">Wanita Usia Subur (Wanita single 12-50 tahun)</a></td>
+                  <td class="text-center"><?= $wasubur ?></td>
                 </tr>
               </tbody>
             </table>

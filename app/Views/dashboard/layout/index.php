@@ -185,6 +185,8 @@
     <?php endif; ?>
   </script>
 
+  <!-- manually add jquery -->
+  <script src="<?= base_url('/node_modules/jquery/dist/jquery.min.js'); ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="<?= base_url('/assets/js/scripts.js') ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -194,8 +196,6 @@
   <script src="<?= base_url('/assets/js/datatables-simple-demo.js') ?>"></script>
   <script type="text/javascript" src="https://www.viralpatel.net/demo/jquery/jquery.shorten.1.0.js"></script>
   <!-- <script src="https://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script> -->
-  <!-- manually add jquery -->
-  <script src="<?= base_url('/node_modules/jquery/dist/jquery.min.js'); ?>"></script>
 
 
   <script>
@@ -263,6 +263,26 @@
         $('<input>').attr('value', $('#inputName').val(biograpi[0].namaagt));
       });
     });
+  </script>
+
+  <!-- bayi table -->
+  <script>
+    $('#tablebayi tr td:nth-child(5)').filter(function() {
+      let duta = $(this).text()
+      return (duta <= 2)
+    }).closest('tr').addClass('table-warning')
+  </script>
+  <script>
+    $('#tablebayi tr td:nth-child(5)').filter(function() {
+      let tita = $(this).text()
+      return (tita == 3)
+    }).closest('tr').addClass('table-success')
+  </script>
+  <script>
+    $('#tablebayi tr td:nth-child(5)').filter(function() {
+      let lita = $(this).text()
+      return (lita > 3 && lita <= 5)
+    }).closest('tr').addClass('table-danger')
   </script>
 
 </body>

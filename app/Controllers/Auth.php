@@ -139,12 +139,14 @@ class Auth extends BaseController
             'user'          => $this->user,
             'title'         => 'Home | Padukuhan Kedung Dayak',
             'smallimg'      => $this->smallimgmodel->findAll(),
-            'badutam'       => $this->datamodel->badutamale(),
-            'badutaf'       => $this->datamodel->badutafemale(),
-            'batitam'       => $this->datamodel->batitamale(),
-            'batitaf'       => $this->datamodel->batitafemale(),
-            'balitam'       => $this->datamodel->balitamale(),
-            'balitaf'       => $this->datamodel->balitafemale()
+            'badutam'       => count($this->datamodel->badutamale()),
+            'badutaf'       => count($this->datamodel->badutafemale()),
+            'batitam'       => count($this->datamodel->batitamale()),
+            'batitaf'       => count($this->datamodel->batitafemale()),
+            'balitam'       => count($this->datamodel->balitamale()),
+            'balitaf'       => count($this->datamodel->balitafemale()),
+            'pasubur'       => count($this->datamodel->pasubur()),
+            'wasubur'       => count($this->datamodel->wasubur())
         ];
         return view('/dashboard/home', $data);
     }
@@ -343,6 +345,54 @@ class Auth extends BaseController
 
         session()->setFlashData('tambah', 'Berhasil menambahkan penduduk baru');
         return redirect()->to('/home/penduduk');
+    }
+
+    public function jumlahbayi()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'balita'        => $this->datamodel->balita()
+        ];
+        return view('/dashboard/penduduk/bayi', $data);
+    }
+
+    public function pasubur()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'pasubur'       => $this->datamodel->pasubur()
+        ];
+        return view('/dashboard/penduduk/pasubur', $data);
+    }
+
+    public function wasubur()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'wasubur'       => $this->datamodel->wasubur()
+        ];
+        return view('/dashboard/penduduk/wasubur', $data);
     }
 
     // -----------------Pindah-----------------

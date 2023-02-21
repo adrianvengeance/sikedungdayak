@@ -91,6 +91,9 @@ $routes->post('/home/penduduk/editprocess/(:num)', 'Auth::editpendudukprocess/$1
 $routes->get('/home/penduduk/tambah', 'Auth::penduduktambah');
 $routes->get('/home/penduduk/tambah/(:num)', 'Auth::penduduktambah/$1');
 $routes->post('/home/penduduk/tambahprocess', 'Auth::penduduktambahprocess');
+$routes->get('/home/penduduk/jumlah-bayi', 'Auth::jumlahbayi');
+$routes->get('/home/penduduk/pasangan-subur', 'Auth::pasubur');
+$routes->get('/home/penduduk/wanita-subur', 'Auth::wasubur');
 
 $routes->get('/home/pindah', 'Auth::pindah');
 $routes->get('/home/pindah/cari', 'Auth::pindahcari');
