@@ -256,8 +256,8 @@
                         </div>
                       </div>
                       <div class="row mb-3 px-2">
-                        <label for="pgrbansos" class="form-label mb-2">Program Bansos</label>
-                        <div id="pgrbansos" class="text-center d-flex justify-content-between form-control px-2">
+                        <label for="pgrbansos" class="form-label mb-2 px-1">Program Bansos</label>
+                        <div id="pgrbansos" class="text-center d-flex justify-content-between form-control px-3 mx-1">
                           <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="pbi" value="PBI" <?= ($orang->pbi == 'PBI') ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="inlineCheckbox1">PBI</label>
@@ -273,6 +273,62 @@
                           <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="bst" value="BST" <?= ($orang->bst == 'BST') ? 'checked' : ''; ?>>
                             <label class="form-check-label" for="inlineCheckbox3">BST</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3 px-2">
+                        <label for="aseptor" class="form-label mb-2 px-1">Aseptor</label>
+                        <div id="aseptor" class="text-center form-control px-2 mx-1">
+                          <div class="d-flex justify-content-evenly">
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="pemerintahcheck" name="aseptor" value="Pemerintah" <?= $orang->sumber_aseptor == 'Pemerintah' ? 'checked' : ''; ?>>
+                              <label for="pemerintahcheck" class="form-check-label">Pemerintah</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="swastacheck" name="aseptor" value="Swasta" <?= $orang->sumber_aseptor == 'Swasta' ? 'checked' : ''; ?>>
+                              <label for="swastacheck" class="form-check-label">Swasta</label>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-around mt-2">
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="suntik" name="jenisaseptor" value="Suntik" <?= $orang->jenis_aseptor == 'Suntik' ? 'checked' : ''; ?>>
+                              <label for="suntik" class="form-check-label">Suntik</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="IAS" name="jenisaseptor" value="IAS" <?= $orang->jenis_aseptor == 'IAS' ? 'checked' : ''; ?>>
+                              <label for="IAS" class="form-check-label">IAS</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="TIAL" name="jenisaseptor" value="TIAL" <?= $orang->jenis_aseptor == 'TIAL' ? 'checked' : ''; ?>>
+                              <label for="TIAL" class="form-check-label">TIAL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="IMP" name="jenisaseptor" value="IMP" <?= $orang->jenis_aseptor == 'IMP' ? 'checked' : ''; ?>>
+                              <label for="IMP" class="form-check-label">IMP</label>
+                            </div>
+
+                          </div>
+                          <div class="d-flex justify-content-evenly">
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="MOP" name="jenisaseptor" value="MOP" <?= $orang->jenis_aseptor == 'MOP' ? 'checked' : ''; ?>>
+                              <label for="MOP" class="form-check-label">MOP</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="MOW" name="jenisaseptor" value="MOW" <?= $orang->jenis_aseptor == 'MOW' ? 'checked' : ''; ?>>
+                              <label for="MOW" class="form-check-label">MOW</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="IUD" name="jenisaseptor" value="IUD" <?= $orang->jenis_aseptor == 'IUD' ? 'checked' : ''; ?>>
+                              <label for="IUD" class="form-check-label">IUD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="pil" name="jenisaseptor" value="Pil" <?= $orang->jenis_aseptor == 'Pil' ? 'checked' : ''; ?>>
+                              <label for="pil" class="form-check-label">Pil</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input type="checkbox" class="form-check-input" id="kondom" name="jenisaseptor" value="Kondom" <?= $orang->jenis_aseptor == 'Kondom' ? 'checked' : ''; ?>>
+                              <label for="kondom" class="form-check-label">Kondom</label>
+                            </div>
                           </div>
                         </div>
                       </div>

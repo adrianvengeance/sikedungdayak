@@ -8,6 +8,7 @@ use App\Models\UsersModel;
 use App\Models\PindahModel;
 use App\Models\BigimgModel;
 use App\Models\SmallimgModel;
+use App\Models\AseptorModel;
 use App\Models\VideoytModel;
 use App\Models\VisitorModel;
 use App\Models\MeninggalModel;
@@ -29,6 +30,7 @@ class Auth extends BaseController
         $this->meninggalmodel = new MeninggalModel();
         $this->pengungumanmodel = new PengungumanModel();
         $this->kritiksaranmodel = new KritiksaranModel();
+        $this->aseptormodel = new AseptorModel();
         $this->uri = current_url(true);
 
         $this->db = \Config\Database::connect();
@@ -165,6 +167,7 @@ class Auth extends BaseController
             'user'          => $this->user,
             'title'         => 'Penduduk | Padukuhan Kedung Dayak',
         ];
+        // dd($data['data']);
         return view('/dashboard/penduduk/penduduk', $data);
     }
 
@@ -956,6 +959,19 @@ class Auth extends BaseController
         $orang = $this->datamodel->carinik($nik);
         $id = $orang->id;
         $info = $this->request->getPost();
+
+        $dataaseptor = [
+            'sumber_aseptor'    => $this->request->getPost('aseptor'),
+            'jenis_aseptor'     => $this->request->getPost('jenisaseptor')
+        ];
+        $adaaseptor = $this->aseptormodel->getId($id);
+
+        if ($adaaseptor) {
+            $this->aseptormodel->update($adaaseptor['id'], $dataaseptor);
+        } else {
+            $dataaseptor['data_id'] = $id;
+            $this->aseptormodel->insert($dataaseptor);
+        }
 
         $info['pbi'] = ($this->request->getPost('pbi')) ? $this->request->getPost('pbi') : '';
         $info['pkh'] = ($this->request->getPost('pkh')) ? $this->request->getPost('pkh') : '';

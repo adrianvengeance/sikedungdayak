@@ -285,6 +285,16 @@
     }).closest('tr').addClass('table-danger')
   </script>
 
+  <!-- aseptor -->
+  <script>
+    $(document).on('click', 'input[type="checkbox"][name="aseptor"]', function() {
+      $('input[type="checkbox"][name="aseptor"]').not(this).prop('checked', false)
+    })
+    $(document).on('click', 'input[type="checkbox"][name="jenisaseptor"]', function() {
+      $('input[type="checkbox"][name="jenisaseptor"]').not(this).prop('checked', false)
+    })
+  </script>
+
 </body>
 
 </html>

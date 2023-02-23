@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Models\AseptorModel;
 
 class DataModel extends Model
 {
@@ -17,7 +18,8 @@ class DataModel extends Model
 
     public function semuanya()
     {
-        $query = $this->db->query("SELECT *, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age FROM data;");
+        // $query = $this->db->query("SELECT *, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age FROM data;");
+        $query = $this->db->query("SELECT *, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age FROM data LEFT JOIN aseptor ON aseptor.data_id=data.id");
         return $query->getResult();
     }
 
@@ -174,6 +176,7 @@ class DataModel extends Model
         $builder = $this->db->table('data');
         $builder->select('*');
         $builder->Where('nik', $cari);
+        $builder->join('aseptor', "aseptor.data_id = data.id", 'left');
         return $builder->get()->getRow();
     }
     public function carinamaagt($cari)
