@@ -967,7 +967,7 @@ class Auth extends BaseController
         $adaaseptor = $this->aseptormodel->getId($id);
 
         if ($adaaseptor) {
-            $this->aseptormodel->update($adaaseptor['id'], $dataaseptor);
+            $this->aseptormodel->update($adaaseptor['aseptor_id'], $dataaseptor);
         } else {
             $dataaseptor['data_id'] = $id;
             $this->aseptormodel->insert($dataaseptor);

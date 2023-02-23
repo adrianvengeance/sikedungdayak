@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class AseptorModel extends Model
 {
     protected $table            = 'aseptor';
-    protected $primaryKey       = 'id';
-    protected $allowedFields    = ['data_id', 'numkk', 'nik', 'sumber_aseptor', 'jenis_aseptor'];
+    protected $primaryKey       = 'aseptor_id';
+    protected $allowedFields    = ['data_id', 'sumber_aseptor', 'jenis_aseptor'];
 
     // Dates
     protected $useTimestamps = true;

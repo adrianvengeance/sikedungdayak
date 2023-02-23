@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Models\AseptorModel;
 
 class DataModel extends Model
 {
@@ -18,7 +17,6 @@ class DataModel extends Model
 
     public function semuanya()
     {
-        // $query = $this->db->query("SELECT *, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age FROM data;");
         $query = $this->db->query("SELECT *, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age FROM data LEFT JOIN aseptor ON aseptor.data_id=data.id");
         return $query->getResult();
     }
@@ -28,15 +26,6 @@ class DataModel extends Model
         $query = $this->db->query("SELECT tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS age FROM data;");
         return $query->getResultArray();
     }
-
-    // public function umurjeniskel($lorp)
-    // {
-    //     $builder = $this->db->table('data');
-    //     $builder->select("namaagt, jeniskel, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS umur");
-    //     $builder->where("jeniskel", $lorp);
-    //     $query = $builder->get()->getResultArray();
-    //     return $query;
-    // }
 
     public function umurjeniskel_03($lorp)
     {
@@ -99,7 +88,6 @@ class DataModel extends Model
 
     public function pendidikanbyusia($pnddkn)
     {
-        // $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS umur FROM data WHERE pendidikan LIKE '%$pnddkn%' AND umur BETWEEN 17 AND 63;");
         $query = $this->db->query("SELECT namaagt, pendidikan, tgllahir, CURDATE(), TIMESTAMPDIFF(YEAR,tgllahir,CURDATE()) AS age FROM data WHERE pendidikan LIKE '%$pnddkn%';");
         return $query->getResultArray();
     }
