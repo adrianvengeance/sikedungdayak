@@ -3,7 +3,7 @@
 <main>
   <div class="container-fluid px-4">
     <h1 class="my-3">Dashboard</h1>
-    <div class="row">
+    <div class="row gx-3">
       <div class="col-xl-3 col-md-6">
         <div class="card border border-3 border-primary text-white mb-4">
           <div class="card-body bg-primary pb-1">
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row gx-3">
       <div class="col-xl-6">
         <div class="card boder border-1 border-secondary mb-4">
           <div class="card-header border-1 border-secondary">
@@ -82,7 +82,9 @@
           <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
         </div>
       </div>
-      <div class="col-xl-6">
+    </div>
+    <div class="row gx-2">
+      <div class="col-xl-4">
         <div class="card boder border-1 border-secondary mb-4">
           <div class="card-header border-1 border-secondary">
             <i class="fas fa-baby me-1"></i>
@@ -122,7 +124,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xl-6">
+      <div class="col-xl-4">
         <div class="card boder border-1 border-secondary mb-4">
           <div class="card-header border-1 border-secondary">
             <i class="fas fa-female me-1"></i>
@@ -144,6 +146,34 @@
                 <tr class="table-danger">
                   <td><a class="text-dark text-decoration-none" href="home/penduduk/wanita-subur">Wanita Usia Subur (Wanita single 12-50 tahun)</a></td>
                   <td class="text-center"><?= $wasubur ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <div class="card boder border-1 border-secondary mb-4">
+          <div class="card-header border-1 border-secondary">
+            <i class="fas fa-archive me-1"></i>
+            Filter
+          </div>
+          <div class="card-body">
+            <table class="table table-striped table-bordered">
+              <thead class="text-center">
+                <tr>
+                  <th>Kategori</th>
+                  <th>Jumlah</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-secondary">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Program Bansos</a></td>
+                  <td class="text-center"><?= $bansos ?></td>
+                </tr>
+                <tr class="table-warning">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Program Aseptor</a></td>
+                  <td class="text-center"><?= $aseptor ?></td>
                 </tr>
               </tbody>
             </table>

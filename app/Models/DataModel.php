@@ -312,4 +312,24 @@ class DataModel extends Model
         $builder->orderBy('age ASC');
         return $builder->get()->getResultArray();
     }
+
+    public function bansos()
+    {
+        $builder = $this->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
+        $builder->join('aseptor', "aseptor.data_id = data.id", 'left');
+        $builder->where("pbi", 'PBI');
+        $builder->orWhere("pkh", 'PKH');
+        $builder->orWhere("bpnt", 'BPNT');
+        $builder->orWhere("bst", 'BST');
+        return $builder->get()->getResultArray();
+    }
+
+    public function aseptor()
+    {
+        $builder = $this->db->table('data');
+        $builder->select('*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age');
+        $builder->join('aseptor', "aseptor.data_id = data.id", 'inner');
+        $builder->where('jenis_aseptor !=', null);
+        return $builder->get()->getResultArray();
+    }
 }

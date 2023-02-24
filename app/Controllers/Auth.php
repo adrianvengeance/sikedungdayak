@@ -148,7 +148,9 @@ class Auth extends BaseController
             'balitam'       => count($this->datamodel->balitamale()),
             'balitaf'       => count($this->datamodel->balitafemale()),
             'pasubur'       => count($this->datamodel->pasubur()),
-            'wasubur'       => count($this->datamodel->wasubur())
+            'wasubur'       => count($this->datamodel->wasubur()),
+            'bansos'        => count($this->datamodel->bansos()),
+            'aseptor'       => count($this->datamodel->aseptor())
         ];
         return view('/dashboard/home', $data);
     }
@@ -396,6 +398,39 @@ class Auth extends BaseController
             'wasubur'       => $this->datamodel->wasubur()
         ];
         return view('/dashboard/penduduk/wasubur', $data);
+    }
+
+    public function bansos()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'data'          => $this->datamodel->bansos()
+        ];
+        // dd($data['data']);
+        return view('/dashboard/penduduk/bansos', $data);
+    }
+
+    public function aseptor()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'data'          => $this->datamodel->aseptor()
+        ];
+        return view('/dashboard/penduduk/aseptor', $data);
     }
 
     // -----------------Pindah-----------------

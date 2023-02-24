@@ -41,6 +41,7 @@
                             <th>Kode POS</th>
                             <th>Provinsi</th>
                             <th>Program Bansos</th>
+                            <th>Aseptor</th>
                         </tr>
                     </thead>
                     <!-- <tfoot>
@@ -104,7 +105,8 @@
                                 <td><?= $value->kota ?></td>
                                 <td><?= $value->kodepos ?></td>
                                 <td><?= $value->provinsi ?></td>
-                                <td><?= $value->pbi . ' ' . $value->pkh . ' ' . $value->bpnt . ' ' . $value->bst . ' ' ?>
+                                <td><?= $value->pbi . ' ' . $value->pkh . ' ' . $value->bpnt . ' ' . $value->bst . ' ' ?></td>
+                                <td><?= empty($value->jenis_aseptor) ? "" : $value->sumber_aseptor . ', ' . $value->jenis_aseptor ?></td>
                             </tr>
 
                         <?php endforeach; ?>
