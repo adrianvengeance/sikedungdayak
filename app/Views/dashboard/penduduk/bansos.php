@@ -51,7 +51,7 @@
               <th>PKH</th>
               <th>BPNT</th>
               <th>BST</th>
-              <th>Aseptor</th>
+              <th>Akseptor</th>
               <th>Nomor KK</th>
               <th>NIK</th>
               <th>Goldar</th>

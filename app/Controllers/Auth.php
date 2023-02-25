@@ -149,8 +149,26 @@ class Auth extends BaseController
             'balitaf'       => count($this->datamodel->balitafemale()),
             'pasubur'       => count($this->datamodel->pasubur()),
             'wasubur'       => count($this->datamodel->wasubur()),
-            'bansos'        => count($this->datamodel->bansos()),
-            'aseptor'       => count($this->datamodel->aseptor())
+            'bansosPBI'     => count($this->datamodel->bansoskategori('PBI')),
+            'bansosPKH'     => count($this->datamodel->bansoskategori('PKH')),
+            'bansosBPNT'    => count($this->datamodel->bansoskategori('BPNT')),
+            'bansosBST'     => count($this->datamodel->bansoskategori('BST')),
+            'akspIMP'       => count($this->aseptormodel->count('Pemerintah', 'IMP')),
+            'akspMOP'       => count($this->aseptormodel->count('Pemerintah', 'MOP')),
+            'akspMOW'       => count($this->aseptormodel->count('Pemerintah', 'MOW')),
+            'akspIUD'       => count($this->aseptormodel->count('Pemerintah', 'IUD')),
+            'akspPIL'       => count($this->aseptormodel->count('Pemerintah', 'PIL')),
+            'akspKondom'    => count($this->aseptormodel->count('Pemerintah', 'Kondom')),
+            'akspSuntik'    => count($this->aseptormodel->count('Pemerintah', 'Suntik')),
+            'akssIMP'       => count($this->aseptormodel->count('Swasta', 'IMP')),
+            'akssMOP'       => count($this->aseptormodel->count('Swasta', 'MOP')),
+            'akssMOW'       => count($this->aseptormodel->count('Swasta', 'MOW')),
+            'akssIUD'       => count($this->aseptormodel->count('Swasta', 'IUD')),
+            'akssPIL'       => count($this->aseptormodel->count('Swasta', 'PIL')),
+            'akssKondom'    => count($this->aseptormodel->count('Swasta', 'Kondom')),
+            'akssSuntik'    => count($this->aseptormodel->count('Swasta', 'Suntik')),
+            'akssTIAL'      => count($this->aseptormodel->count('Swasta', 'TIAL')),
+            'akssIAS'       => count($this->aseptormodel->count('Swasta', 'IAS')),
         ];
         return view('/dashboard/home', $data);
     }
@@ -413,7 +431,6 @@ class Auth extends BaseController
             'title'         => 'Penduduk | Padukuhan Kedung Dayak',
             'data'          => $this->datamodel->bansos()
         ];
-        // dd($data['data']);
         return view('/dashboard/penduduk/bansos', $data);
     }
 

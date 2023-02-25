@@ -11,7 +11,7 @@
             <div class="col-12">
               <div class="text-center">
                 <button class="btn mx-auto align-text-bottom" disabled>
-                  <h5><i class="fas fa-venus me-2"></i>Program Aseptor</h5>
+                  <h5><i class="fas fa-venus me-2"></i>Program Akseptor</h5>
                 </button>
               </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-4">
               <div class="text-center">
                 <button class="btn mx-auto align-text-bottom" disabled>
-                  <h5><i class="fas fa-venus me-2"></i>Program Aseptor</h5>
+                  <h5><i class="fas fa-venus me-2"></i>Program Akseptor</h5>
                 </button>
               </div>
             </div>
@@ -47,7 +47,7 @@
               <th>Tanggal Lahir</th>
               <th>Umur</th>
               <th>Jenis Kelamin</th>
-              <th>Aseptor</th>
+              <th>Akseptor</th>
               <th>Jenis</th>
               <th>Program Bansos</th>
               <th>Nomor KK</th>

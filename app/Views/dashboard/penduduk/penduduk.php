@@ -87,7 +87,7 @@
                             <th>Kode POS</th>
                             <th>Provinsi</th>
                             <th>Program Bansos</th>
-                            <th>Aseptor</th>
+                            <th>Akseptor</th>
                         </tr>
                     </thead>
                     <tbody>

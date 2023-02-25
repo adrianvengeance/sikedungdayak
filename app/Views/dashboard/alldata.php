@@ -41,39 +41,9 @@
                             <th>Kode POS</th>
                             <th>Provinsi</th>
                             <th>Program Bansos</th>
-                            <th>Aseptor</th>
+                            <th>Akseptor</th>
                         </tr>
                     </thead>
-                    <!-- <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Nomor KK</th>
-                            <th>NIK</th>
-                            <th>Nama</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Umur</th>
-                            <th>Agama</th>
-                            <th>Golongan Darah</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Keluarga</th>
-                            <th>Status Diri</th>
-                            <th>Status Warga</th>
-                            <th>Pendidikan</th>
-                            <th>Pekerjaan</th>
-                            <th>Ayah</th>
-                            <th>Ibu</th>
-                            <th>Hubungan Keluarga</th>
-                            <th>Alamat Asal</th>
-                            <th>RT</th>
-                            <th>RW</th>
-                            <th>Kelurahan</th>
-                            <th>Kecamatan</th>
-                            <th>Kota</th>
-                            <th>Kode POS</th>
-                            <th>Provinsi</th>
-                        </tr>
-                    </tfoot> -->
                     <tbody>
                         <?php foreach ($data as $n => $value) : ?>
 

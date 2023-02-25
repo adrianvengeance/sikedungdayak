@@ -26,4 +26,11 @@ class AseptorModel extends Model
     {
         return $this->where('data_id', $dataid)->first();
     }
+
+    public function count($sumber, $aseptor)
+    {
+        $builder = $this->where('sumber_aseptor', $sumber);
+        $builder->where('jenis_aseptor', $aseptor);
+        return $builder->get()->getResultArray();
+    }
 }

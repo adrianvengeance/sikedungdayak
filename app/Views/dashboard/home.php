@@ -3,7 +3,7 @@
 <main>
   <div class="container-fluid px-4">
     <h1 class="my-3">Dashboard</h1>
-    <div class="row gx-3">
+    <div class="row gx-3 gy-0">
       <div class="col-xl-3 col-md-6">
         <div class="card border border-3 border-primary text-white mb-4">
           <div class="card-body bg-primary pb-1">
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="row gx-3">
-      <div class="col-xl-6">
+      <div class="col-md-6">
         <div class="card boder border-1 border-secondary mb-4">
           <div class="card-header border-1 border-secondary">
             <i class="fas fa-chart-area me-1"></i>
@@ -73,7 +73,7 @@
           <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
         </div>
       </div>
-      <div class="col-xl-6">
+      <div class="col-md-6">
         <div class="card boder border-1 border-secondary mb-4">
           <div class="card-header border-1 border-secondary">
             <i class="fas fa-chart-bar me-1"></i>
@@ -83,9 +83,9 @@
         </div>
       </div>
     </div>
-    <div class="row gx-2">
-      <div class="col-xl-4">
-        <div class="card boder border-1 border-secondary mb-4">
+    <div class="row gx-3 mb-4">
+      <div class="col-md-6 col-12">
+        <div class="card boder border-1 border-secondary mb-4 mb-md-2">
           <div class="card-header border-1 border-secondary">
             <i class="fas fa-baby me-1"></i>
             Jumlah Bayi sesuai Usia
@@ -123,15 +123,14 @@
             </table>
           </div>
         </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="card boder border-1 border-secondary mb-4">
+
+        <div class="card boder border-1 border-secondary mb-4 mb-md-2">
           <div class="card-header border-1 border-secondary">
             <i class="fas fa-female me-1"></i>
             Jumlah Wanita Usia Subur
           </div>
           <div class="card-body">
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered table-sm">
               <thead class="text-center">
                 <tr>
                   <th>Kategori</th>
@@ -151,15 +150,14 @@
             </table>
           </div>
         </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="card boder border-1 border-secondary mb-4">
+
+        <div class="card boder border-1 border-secondary mb-4 mb-md-2">
           <div class="card-header border-1 border-secondary">
-            <i class="fas fa-archive me-1"></i>
-            Filter
+            <i class="fas fa-hands me-1"></i>
+            Program Bansos
           </div>
           <div class="card-body">
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered table-sm">
               <thead class="text-center">
                 <tr>
                   <th>Kategori</th>
@@ -167,15 +165,109 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="table-secondary">
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Program Bansos</a></td>
-                  <td class="text-center"><?= $bansos ?></td>
+                <tr class="">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Penerima Bantuan Iuran (PBI)</a></td>
+                  <td class="text-center"><?= $bansosPBI ?></td>
                 </tr>
-                <tr class="table-warning">
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Program Aseptor</a></td>
-                  <td class="text-center"><?= $aseptor ?></td>
+                <tr class="">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Progarm Keluarga Harapan (PKH)</a></td>
+                  <td class="text-center"><?= $bansosPKH ?></td>
+                </tr>
+                <tr class="">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Bantuan Pangan Non Tunai (PBNT)</a></td>
+                  <td class="text-center"><?= $bansosBPNT ?></td>
+                </tr>
+                <tr class="">
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Bantuan Sosial Tunai (BST)</a></td>
+                  <td class="text-center"><?= $bansosBST ?></td>
                 </tr>
               </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="card boder border-1 border-secondary">
+          <div class="card-header border-1 border-secondary">
+            <i class="fas fa-venus me-1"></i>
+            Program Akseptor
+          </div>
+          <div class="card-body">
+            <table class="table table-striped table-bordered">
+              <thead class="text-center">
+                <tr>
+                  <th colspan="2">Pemerintah</th>
+                  <th colspan="2">Swasta</th>
+                </tr>
+                <tr>
+                  <th>Jenis</th>
+                  <th>Jumlah</th>
+                  <th>Jenis</th>
+                  <th>Jumlah</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IMP</a></td>
+                  <td><?= $akspIMP ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IMP</a></td>
+                  <td><?= $akssIMP ?></td>
+                </tr>
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOP</a></td>
+                  <td><?= $akspMOP ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOP</a></td>
+                  <td><?= $akssMOP ?></td>
+                </tr>
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOW</a></td>
+                  <td><?= $akspMOW ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOW</a></td>
+                  <td><?= $akssMOW ?></td>
+                </tr>
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IUD</a></td>
+                  <td><?= $akspIUD ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IUD</a></td>
+                  <td><?= $akssIUD ?></td>
+                </tr>
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">PIL</a></td>
+                  <td><?= $akspPIL ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">PIL</a></td>
+                  <td><?= $akssPIL ?></td>
+                </tr>
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Kondom</a></td>
+                  <td><?= $akspKondom ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Kondom</a></td>
+                  <td><?= $akssKondom ?></td>
+                </tr>
+                <tr>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Suntik</a></td>
+                  <td><?= $akspSuntik ?></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Suntik</a></td>
+                  <td><?= $akssSuntik ?></td>
+                </tr>
+                <tr>
+                  <td colspan="2"></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">TIAL</a></td>
+                  <td><?= $akssTIAL ?></td>
+                </tr>
+                <tr>
+                  <td colspan="2"></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IAS</a></td>
+                  <td><?= $akssIAS ?></td>
+                </tr>
+              </tbody>
+              <tfoot class="text-center">
+                <tr>
+                  <td>Jumlah</td>
+                  <td><?= $akspIMP + $akspIUD + $akspKondom + $akspMOP + $akspMOW + $akspPIL + $akspSuntik; ?></td>
+                  <td>Jumlah</td>
+                  <td><?= $akssIMP + $akssIUD + $akssKondom + $akssMOP + $akssMOW + $akssPIL + $akssSuntik + $akssIAS + $akssTIAL; ?></td>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>
