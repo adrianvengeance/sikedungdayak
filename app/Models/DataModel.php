@@ -327,7 +327,6 @@ class DataModel extends Model
     public function bansoskategori($bansos)
     {
         $builder = $this->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->join('aseptor', "aseptor.data_id = data.id", 'left');
         $builder->where("pbi", $bansos);
         $builder->orWhere("pkh", $bansos);
         $builder->orWhere("bpnt", $bansos);

@@ -94,7 +94,10 @@ $routes->post('/home/penduduk/tambahprocess', 'Auth::penduduktambahprocess');
 $routes->get('/home/penduduk/jumlah-bayi', 'Auth::jumlahbayi');
 $routes->get('/home/penduduk/pasangan-subur', 'Auth::pasubur');
 $routes->get('/home/penduduk/wanita-subur', 'Auth::wasubur');
-$routes->get('/home/penduduk/program-bansos', 'Auth::bansos');
+$routes->get('/home/penduduk/program-bansos-pbi', 'Auth::bansospbi');
+$routes->get('/home/penduduk/program-bansos-pkh', 'Auth::bansospkh');
+$routes->get('/home/penduduk/program-bansos-bpnt', 'Auth::bansosbpnt');
+$routes->get('/home/penduduk/program-bansos-bst', 'Auth::bansosbst');
 $routes->get('/home/penduduk/program-aseptor', 'Auth::aseptor');
 
 $routes->get('/home/pindah', 'Auth::pindah');

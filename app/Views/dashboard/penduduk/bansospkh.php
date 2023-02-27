@@ -11,7 +11,10 @@
             <div class="col-12">
               <div class="text-center">
                 <button class="btn mx-auto align-text-bottom" disabled>
-                  <h5><i class="fas fa-hands me-2"></i>Program Bantuan Sosial</h5>
+                  <h5 class="row">
+                    <span class="col-2"><i class="fas fa-hands me-2"></i></span>
+                    <span class="col-10">Program Bantuan Sosial<br>Program Keluarga Harapan (PKH)</span>
+                  </h5>
                 </button>
               </div>
             </div>
@@ -23,13 +26,16 @@
         <!-- computer screen -->
         <div class="d-none d-md-block">
           <div class="row">
-            <div class="col-4 d-flex align-items-end justify-content-start">
+            <div class="col-2 d-flex align-items-end justify-content-start">
               <a class="btn btn-sm btn-outline" href="/home"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <div class="col-4">
+            <div class="col-8">
               <div class="text-center">
-                <button class="btn mx-auto align-text-bottom" disabled>
-                  <h5><i class="fas fa-hands me-2"></i>Program Bantuan Sosial</h5>
+                <button class="btn col-9 align-text-bottom" disabled>
+                  <h5 class="row row-cols">
+                    <span class="col-2 text-end px-0 mt-2"><i class="fas fa-hands me-2"></i></span>
+                    <div class="col-8 px-0">Program Bantuan Sosial<br>Program Keluarga Harapan (PKH)</div>
+                  </h5>
                 </button>
               </div>
             </div>
@@ -47,11 +53,7 @@
               <th>Tanggal Lahir</th>
               <th>Umur</th>
               <th>Jenis Kelamin</th>
-              <th>PBI</th>
-              <th>PKH</th>
-              <th>BPNT</th>
-              <th>BST</th>
-              <th>Akseptor</th>
+              <th>Program Bansos</th>
               <th>Nomor KK</th>
               <th>NIK</th>
               <th>Goldar</th>
@@ -81,11 +83,7 @@
                   <td><?= $orang['tgllahir']; ?></td>
                   <td><?= $orang['age']; ?></td>
                   <td><?= $orang['jeniskel']; ?></td>
-                  <td><?= $orang['pbi'] ?></td>
-                  <td><?= $orang['pkh'] ?></td>
-                  <td><?= $orang['bpnt'] ?></td>
-                  <td><?= $orang['bst'] ?></td>
-                  <td><?= empty($orang['jenis_aseptor']) ? "" : $orang['sumber_aseptor'] . ', ' . $orang['jenis_aseptor'] ?></td>
+                  <td><?= $orang['pkh'] . ' ' . $orang['pbi'] . ' ' . $orang['bpnt'] . ' ' . $orang['bst'] . ' ' ?>
                   <td><?= $orang['numkk']; ?></td>
                   <td><?= $orang['nik']; ?></td>
                   <td><?= $orang['goldar']; ?></td>

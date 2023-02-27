@@ -418,7 +418,7 @@ class Auth extends BaseController
         return view('/dashboard/penduduk/wasubur', $data);
     }
 
-    public function bansos()
+    public function bansospbi()
     {
         session()->remove('referred_from');
         session()->remove('orangpindah');
@@ -429,9 +429,54 @@ class Auth extends BaseController
             'uri'           => $this->uri,
             'user'          => $this->user,
             'title'         => 'Penduduk | Padukuhan Kedung Dayak',
-            'data'          => $this->datamodel->bansos()
+            'data'          => $this->datamodel->bansoskategori('PBI')
         ];
-        return view('/dashboard/penduduk/bansos', $data);
+        return view('/dashboard/penduduk/bansospbi', $data);
+    }
+    public function bansospkh()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'data'          => $this->datamodel->bansoskategori('PKH')
+        ];
+        return view('/dashboard/penduduk/bansospkh', $data);
+    }
+    public function bansosbpnt()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'data'          => $this->datamodel->bansoskategori('BPNT')
+        ];
+        return view('/dashboard/penduduk/bansosbpnt', $data);
+    }
+    public function bansosbst()
+    {
+        session()->remove('referred_from');
+        session()->remove('orangpindah');
+        session()->remove('orangmeninggal');
+        session()->remove('inforumah');
+
+        $data = [
+            'uri'           => $this->uri,
+            'user'          => $this->user,
+            'title'         => 'Penduduk | Padukuhan Kedung Dayak',
+            'data'          => $this->datamodel->bansoskategori('BST')
+        ];
+        return view('/dashboard/penduduk/bansosbst', $data);
     }
 
     public function aseptor()

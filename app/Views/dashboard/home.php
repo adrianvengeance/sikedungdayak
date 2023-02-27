@@ -166,19 +166,19 @@
               </thead>
               <tbody>
                 <tr class="">
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Penerima Bantuan Iuran (PBI)</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos-pbi">Penerima Bantuan Iuran (PBI)</a></td>
                   <td class="text-center"><?= $bansosPBI ?></td>
                 </tr>
                 <tr class="">
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Progarm Keluarga Harapan (PKH)</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos-pkh">Program Keluarga Harapan (PKH)</a></td>
                   <td class="text-center"><?= $bansosPKH ?></td>
                 </tr>
                 <tr class="">
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Bantuan Pangan Non Tunai (PBNT)</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos-bpnt">Bantuan Pangan Non Tunai (BPNT)</a></td>
                   <td class="text-center"><?= $bansosBPNT ?></td>
                 </tr>
                 <tr class="">
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos">Bantuan Sosial Tunai (BST)</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-bansos-bst">Bantuan Sosial Tunai (BST)</a></td>
                   <td class="text-center"><?= $bansosBST ?></td>
                 </tr>
               </tbody>
