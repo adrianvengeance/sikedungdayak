@@ -98,7 +98,7 @@ $routes->get('/home/penduduk/program-bansos-pbi', 'Auth::bansospbi');
 $routes->get('/home/penduduk/program-bansos-pkh', 'Auth::bansospkh');
 $routes->get('/home/penduduk/program-bansos-bpnt', 'Auth::bansosbpnt');
 $routes->get('/home/penduduk/program-bansos-bst', 'Auth::bansosbst');
-$routes->get('/home/penduduk/program-aseptor', 'Auth::aseptor');
+$routes->get('/home/penduduk/program-akseptor-(:alpha)', 'Auth::akseptor/$1');
 
 $routes->get('/home/pindah', 'Auth::pindah');
 $routes->get('/home/pindah/cari', 'Auth::pindahcari');

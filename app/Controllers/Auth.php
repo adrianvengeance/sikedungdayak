@@ -479,7 +479,7 @@ class Auth extends BaseController
         return view('/dashboard/penduduk/bansosbst', $data);
     }
 
-    public function aseptor()
+    public function akseptor($akseptor)
     {
         session()->remove('referred_from');
         session()->remove('orangpindah');
@@ -490,7 +490,8 @@ class Auth extends BaseController
             'uri'           => $this->uri,
             'user'          => $this->user,
             'title'         => 'Penduduk | Padukuhan Kedung Dayak',
-            'data'          => $this->datamodel->aseptor()
+            'tabletitle'    => $akseptor,
+            'data'          => $this->aseptormodel->listPeople($akseptor)
         ];
         return view('/dashboard/penduduk/aseptor', $data);
     }

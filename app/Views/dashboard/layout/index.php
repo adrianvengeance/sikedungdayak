@@ -285,6 +285,15 @@
     }).closest('tr').addClass('table-danger')
   </script>
 
+  <!-- akseptorTable coloring -->
+  <!-- <script>
+    $('.akseptorTable tr td:nth-child(7)').filter(function() {
+      let sumber_pemerintah = $(this).text()
+      console.log(sumber_pemerintah)
+      return (sumber_pemerintah == 'Pemerintah')
+    }).closest('tr').addClass('table-primary')
+  </script> -->
+
   <!-- aseptor -->
   <script>
     $(document).on('click', 'input[type="checkbox"][name="aseptor"]', function() {

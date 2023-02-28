@@ -11,7 +11,7 @@
             <div class="col-12">
               <div class="text-center">
                 <button class="btn mx-auto align-text-bottom" disabled>
-                  <h5><i class="fas fa-venus me-2"></i>Program Akseptor</h5>
+                  <h5><i class="fas fa-venus me-2"></i>Program Akseptor <?= $tabletitle; ?></h5>
                 </button>
               </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-4">
               <div class="text-center">
                 <button class="btn mx-auto align-text-bottom" disabled>
-                  <h5><i class="fas fa-venus me-2"></i>Program Akseptor</h5>
+                  <h5><i class="fas fa-venus me-2"></i>Program Akseptor <?= $tabletitle; ?></h5>
                 </button>
               </div>
             </div>
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="card-body pt-0">
-        <table id="wasubur" class="table">
+        <table id="wasubur" class="table akseptorTable">
           <thead>
             <tr>
               <th>No.</th>
@@ -49,7 +49,6 @@
               <th>Jenis Kelamin</th>
               <th>Akseptor</th>
               <th>Jenis</th>
-              <th>Program Bansos</th>
               <th>Nomor KK</th>
               <th>NIK</th>
               <th>Goldar</th>
@@ -81,7 +80,6 @@
                   <td><?= $orang['jeniskel']; ?></td>
                   <td><?= $orang['sumber_aseptor'] ?></td>
                   <td><?= $orang['jenis_aseptor'] ?></td>
-                  <td><?= $orang['pbi'] . ' ' . $orang['pkh'] . ' ' . $orang['bpnt'] . ' ' . $orang['bst'] . ' ' ?></td>
                   <td><?= $orang['numkk']; ?></td>
                   <td><?= $orang['nik']; ?></td>
                   <td><?= $orang['goldar']; ?></td>

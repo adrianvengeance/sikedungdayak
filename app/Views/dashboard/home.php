@@ -208,55 +208,55 @@
               </thead>
               <tbody class="text-center">
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IMP</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-IMP">IMP</a></td>
                   <td><?= $akspIMP ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IMP</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-IMP">IMP</a></td>
                   <td><?= $akssIMP ?></td>
                 </tr>
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOP</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-MOP">MOP</a></td>
                   <td><?= $akspMOP ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOP</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-MOP">MOP</a></td>
                   <td><?= $akssMOP ?></td>
                 </tr>
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOW</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-MOW">MOW</a></td>
                   <td><?= $akspMOW ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">MOW</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-MOW">MOW</a></td>
                   <td><?= $akssMOW ?></td>
                 </tr>
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IUD</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-IUD">IUD</a></td>
                   <td><?= $akspIUD ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IUD</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-IUD">IUD</a></td>
                   <td><?= $akssIUD ?></td>
                 </tr>
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">PIL</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-PIL">PIL</a></td>
                   <td><?= $akspPIL ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">PIL</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-PIL">PIL</a></td>
                   <td><?= $akssPIL ?></td>
                 </tr>
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Kondom</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-Kondom">Kondom</a></td>
                   <td><?= $akspKondom ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Kondom</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-Kondom">Kondom</a></td>
                   <td><?= $akssKondom ?></td>
                 </tr>
                 <tr>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Suntik</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-Suntik">Suntik</a></td>
                   <td><?= $akspSuntik ?></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">Suntik</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-Suntik">Suntik</a></td>
                   <td><?= $akssSuntik ?></td>
                 </tr>
                 <tr>
                   <td colspan="2"></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">TIAL</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-TIAL">TIAL</a></td>
                   <td><?= $akssTIAL ?></td>
                 </tr>
                 <tr>
                   <td colspan="2"></td>
-                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-aseptor">IAS</a></td>
+                  <td><a class="text-dark text-decoration-none" href="home/penduduk/program-akseptor-IAS">IAS</a></td>
                   <td><?= $akssIAS ?></td>
                 </tr>
               </tbody>

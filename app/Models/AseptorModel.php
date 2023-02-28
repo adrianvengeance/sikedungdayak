@@ -33,4 +33,13 @@ class AseptorModel extends Model
         $builder->where('jenis_aseptor', $aseptor);
         return $builder->get()->getResultArray();
     }
+
+    public function listPeople($akseptor)
+    {
+        $builder = $this->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
+        $builder->join('data', 'data.id = aseptor.data_id');
+        $builder->where('jenis_aseptor', $akseptor);
+        $builder->orderBy('sumber_aseptor ASC, age ASC');
+        return $builder->get()->getResultArray();
+    }
 }
