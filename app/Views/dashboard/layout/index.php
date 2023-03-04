@@ -245,7 +245,6 @@
     $(document).on("click", "#deleteAkun", function() {
       var nama = $(this).data('nama');
       var id = $(this).data('id');
-      // console.log(nama, id)
 
       $(".modal-body #deleteNama").text(nama);
       $(".modal-footer #deleteForm").attr("action", "<?= base_url('/home/accounts/delete') ?>" + '/' + id);
@@ -266,7 +265,7 @@
   </script>
 
   <!-- bayi table -->
-  <script>
+  <!-- <script>
     $('#tablebayi tr td:nth-child(5)').filter(function() {
       let duta = $(this).text()
       return (duta <= 2)
@@ -283,7 +282,7 @@
       let lita = $(this).text()
       return (lita > 3 && lita <= 5)
     }).closest('tr').addClass('table-danger')
-  </script>
+  </script> -->
 
   <!-- akseptorTable coloring -->
   <!-- <script>

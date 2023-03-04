@@ -228,62 +228,82 @@ class DataModel extends Model
         return $this->where('rt', $rt)->findAll();
     }
 
-    public function badutamale()
+    public function baduta($jeniskel)
     {
-        $builder = $this->table('data');
-        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->where("jeniskel", 'LAKI-LAKI');
-        $builder->having("age <=", 2);
-        return ($builder->get()->getResultArray());
-    }
-    public function badutafemale()
-    {
-        $builder = $this->table('data');
-        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->where("jeniskel", 'PEREMPUAN');
-        $builder->having("age <=", 2);
-        return ($builder->get()->getResultArray());
-    }
-
-    public function batitamale()
-    {
-        $builder = $this->table('data');
-        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->where("jeniskel", 'LAKI-LAKI');
-        $builder->having("age <=", 3);
-        return ($builder->get()->getResultArray());
-    }
-    public function batitafemale()
-    {
-        $builder = $this->table('data');
-        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->where("jeniskel", 'PEREMPUAN');
-        $builder->having("age <=", 3);
-        return ($builder->get()->getResultArray());
+        $builder = $this->query("SELECT *, TIMESTAMPDIFF(MONTH, tgllahir, now()) % 12 as month, FLOOR(TIMESTAMPDIFF(DAY, tgllahir, now()) % 30.4375) as day,
+        CASE 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) > 2 THEN 0 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) = 2 THEN 
+                CASE 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) > 0 THEN 0 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) = 0 AND TIMESTAMPDIFF(DAY, tgllahir, NOW()) >= 0 THEN 0 
+                    ELSE TIMESTAMPDIFF(DAY, tgllahir, NOW()) 
+                END 
+            ELSE TIMESTAMPDIFF(YEAR, tgllahir, NOW()) 
+        END AS age
+        FROM data
+        WHERE jeniskel = '$jeniskel'
+        HAVING age <= 2 AND age != 0
+        ORDER BY age ASC, jeniskel ASC, namaagt ASC");
+        return $builder->getResultArray();
     }
 
-    public function balitamale()
+    public function batita($jeniskel)
     {
-        $builder = $this->table('data');
-        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->where("jeniskel", 'LAKI-LAKI');
-        $builder->having("age <=", 5);
-        return ($builder->get()->getResultArray());
+        $builder = $this->query("SELECT *, TIMESTAMPDIFF(MONTH, tgllahir, now()) % 12 as month, FLOOR(TIMESTAMPDIFF(DAY, tgllahir, now()) % 30.4375) as day,
+        CASE 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) > 3 THEN 0 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) = 3 THEN 
+                CASE 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) > 0 THEN 0 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) = 0 AND TIMESTAMPDIFF(DAY, tgllahir, NOW()) >= 0 THEN 0 
+                    ELSE TIMESTAMPDIFF(DAY, tgllahir, NOW()) 
+                END 
+            ELSE TIMESTAMPDIFF(YEAR, tgllahir, NOW()) 
+        END AS age
+        FROM data
+        WHERE jeniskel = '$jeniskel'
+        HAVING age <= 3 AND age != 0
+        ORDER BY age ASC, jeniskel ASC, namaagt ASC");
+        return $builder->getResultArray();
     }
-    public function balitafemale()
+
+    public function balita($jeniskel)
     {
-        $builder = $this->table('data');
-        $builder->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->where("jeniskel", 'PEREMPUAN');
-        $builder->having("age <=", 5);
-        return ($builder->get()->getResultArray());
+        $builder = $this->query("SELECT *, TIMESTAMPDIFF(MONTH, tgllahir, now()) % 12 as month, FLOOR(TIMESTAMPDIFF(DAY, tgllahir, now()) % 30.4375) as day,
+        CASE 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) > 5 THEN 0 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) = 5 THEN 
+                CASE 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) > 0 THEN 0 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) = 0 AND TIMESTAMPDIFF(DAY, tgllahir, NOW()) >= 0 THEN 0 
+                    ELSE TIMESTAMPDIFF(DAY, tgllahir, NOW()) 
+                END 
+            ELSE TIMESTAMPDIFF(YEAR, tgllahir, NOW()) 
+        END AS age
+        FROM data
+        WHERE jeniskel = '$jeniskel'
+        HAVING age <= 5 AND age != 0
+        ORDER BY age ASC, jeniskel ASC, namaagt ASC");
+        return $builder->getResultArray();
     }
-    public function balita()
+    public function balitaall()
     {
-        $builder = $this->select("*, TIMESTAMPDIFF(YEAR, tgllahir, CURDATE()) AS age");
-        $builder->having('age <=', 5);
-        $builder->orderBy('age ASC, jeniskel ASC, namaagt ASC');
-        return $builder->get()->getResultArray();
+        $builder = $this->query("SELECT *, TIMESTAMPDIFF(MONTH, tgllahir, now()) % 12 as month, FLOOR(TIMESTAMPDIFF(DAY, tgllahir, now()) % 30.4375) as day,
+        CASE 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) > 5 THEN 0 
+            WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) = 5 THEN 
+                CASE 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) > 0 THEN 0 
+                    WHEN TIMESTAMPDIFF(MONTH, tgllahir, NOW()) = 0 AND TIMESTAMPDIFF(DAY, tgllahir, NOW()) >= 0 THEN 0 
+                    ELSE TIMESTAMPDIFF(DAY, tgllahir, NOW()) 
+                END 
+            ELSE TIMESTAMPDIFF(YEAR, tgllahir, NOW()) 
+        END AS age
+        FROM data 
+        HAVING age <= 5 AND age != 0
+        ORDER BY tgllahir DESC, jeniskel ASC, namaagt ASC");
+        return $builder->getResultArray();
     }
 
     public function pasubur()

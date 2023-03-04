@@ -44,7 +44,9 @@
               <th>Nama</th>
               <th>Tempat Lahir</th>
               <th>Tanggal Lahir</th>
-              <th>Umur</th>
+              <th>Tahun</th>
+              <th>Bulan</th>
+              <th>Hari</th>
               <th>Jenis Kelamin</th>
               <th>Agama</th>
               <th>Ayah</th>
@@ -52,14 +54,51 @@
             </tr>
           </thead>
           <tbody>
-            <?php if (isset($balita)) : ?>
+            <?php
+
+            use PhpParser\Node\Stmt\Echo_;
+
+            if (isset($balita)) : ?>
               <?php foreach ($balita as $d => $bayi) : ?>
-                <tr>
+                <tr class="
+                <?php switch ($bayi['age']) {
+                  case (1):
+                    echo "table-warning";
+                    break;
+                  case (2):
+                    if ($bayi['month'] == 0 && $bayi['day'] == 0) {
+                      echo "table-warning";
+                    } else {
+                      echo "table-success";
+                    }
+                    break;
+                  case (3):
+                    if ($bayi['month'] == 0 && $bayi['day'] == 0) {
+                      echo "table-success";
+                    } else {
+                      echo "table-danger";
+                    }
+                    break;
+                  case (4):
+                    echo "table-danger";
+                    break;
+                  case (5):
+                    if ($bayi['month'] == 0 && $bayi['day'] == 0) {
+                      echo "table-danger";
+                    } else {
+                      echo "";
+                    }
+                    break;
+                  default:
+                    echo "";
+                } ?>">
                   <td><?= $d + 1; ?></td>
                   <td><?= $bayi['namaagt']; ?></td>
                   <td><?= $bayi['tmplahir']; ?></td>
                   <td><?= $bayi['tgllahir']; ?></td>
                   <td class="fw-bold text-center"><?= $bayi['age']; ?></td>
+                  <td class="text-center"><?= $bayi['month']; ?></td>
+                  <td class="text-center"><?= $bayi['day']; ?></td>
                   <td><?= $bayi['jeniskel']; ?></td>
                   <td><?= $bayi['agama']; ?></td>
                   <td><?= $bayi['ayah']; ?></td>

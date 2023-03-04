@@ -141,12 +141,12 @@ class Auth extends BaseController
             'user'          => $this->user,
             'title'         => 'Home | Padukuhan Kedung Dayak',
             'smallimg'      => $this->smallimgmodel->findAll(),
-            'badutam'       => count($this->datamodel->badutamale()),
-            'badutaf'       => count($this->datamodel->badutafemale()),
-            'batitam'       => count($this->datamodel->batitamale()),
-            'batitaf'       => count($this->datamodel->batitafemale()),
-            'balitam'       => count($this->datamodel->balitamale()),
-            'balitaf'       => count($this->datamodel->balitafemale()),
+            'badutam'       => count($this->datamodel->baduta('LAKI-LAKI')),
+            'badutaf'       => count($this->datamodel->baduta('PEREMPUAN')),
+            'batitam'       => count($this->datamodel->batita('LAKI-LAKI')),
+            'batitaf'       => count($this->datamodel->batita('PEREMPUAN')),
+            'balitam'       => count($this->datamodel->balita('LAKI-LAKI')),
+            'balitaf'       => count($this->datamodel->balita('PEREMPUAN')),
             'pasubur'       => count($this->datamodel->pasubur()),
             'wasubur'       => count($this->datamodel->wasubur()),
             'bansosPBI'     => count($this->datamodel->bansoskategori('PBI')),
@@ -381,8 +381,9 @@ class Auth extends BaseController
             'uri'           => $this->uri,
             'user'          => $this->user,
             'title'         => 'Penduduk | Padukuhan Kedung Dayak',
-            'balita'        => $this->datamodel->balita()
+            'balita'        => $this->datamodel->balitaall()
         ];
+        // dd($data['balita']);
         return view('/dashboard/penduduk/bayi', $data);
     }
 
