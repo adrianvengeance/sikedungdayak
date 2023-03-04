@@ -289,7 +289,8 @@ class DataModel extends Model
     }
     public function balitaall()
     {
-        $builder = $this->query("SELECT *, TIMESTAMPDIFF(MONTH, tgllahir, now()) % 12 as month, FLOOR(TIMESTAMPDIFF(DAY, tgllahir, now()) % 30.4375) as day,
+        // $builder = $this->query("SELECT *, TIMESTAMPDIFF(MONTH, tgllahir, now()) % 12 as month, FLOOR(TIMESTAMPDIFF(DAY, tgllahir, now()) % 30.4375) as day,
+        $builder = $this->query("SELECT *, FLOOR((DATEDIFF(CURDATE(),tgllahir)/365 - FLOOR(DATEDIFF(CURDATE(),tgllahir)/365))* 12) month, CEILING((((DATEDIFF(CURDATE(),tgllahir)/365 - FLOOR(DATEDIFF(CURDATE(),tgllahir)/365))* 12) - FLOOR((DATEDIFF(CURDATE(),tgllahir)/365 - FLOOR(DATEDIFF(CURDATE(),tgllahir)/365))* 12))* 30) day,
         CASE 
             WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) > 5 THEN 0 
             WHEN TIMESTAMPDIFF(YEAR, tgllahir, NOW()) = 5 THEN 
